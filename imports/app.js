@@ -8,7 +8,7 @@ export default class App extends Component {
 	{
 		return(
 			<div className="fondoApp">
-			<div className="container">
+			<div className="container elG">
 				<h1 className="elGolT">El GOL</h1>
 				<UserForm/>
 			</div>

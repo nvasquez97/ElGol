@@ -1,6 +1,14 @@
+html, body
+{
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
 .elGolT{
 	color:rgba(20,20,250,0.7);
 	font-size: 180px;
+	text-align: center;
 }
 h1, h2, h3, h4, h5{
 	font-family:'Kreon';
@@ -16,4 +24,8 @@ p{
     padding: 0;
     height: 100%;
     width: 100%;
+}
+
+.app{
+	height: 100%;
 }

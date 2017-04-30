@@ -5,7 +5,7 @@ export default class UserForm extends Component{
 	render()
 	{
 		return(
-			<div className="container">
+			<div className="container Login">
 				<p>UserForm</p>
 			</div>
 			);
