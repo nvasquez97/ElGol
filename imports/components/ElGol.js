@@ -6,7 +6,7 @@ export default class UserForm extends Component{
 	{
 		return(
 			<div className="container">
-				UserForm
+				<p>UserForm</p>
 			</div>
 			);
 	}

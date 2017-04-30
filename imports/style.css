@@ -1,3 +1,19 @@
 .elGolT{
-	
+	color:rgba(20,20,250,0.7);
+	font-size: 180px;
+}
+h1, h2, h3, h4, h5{
+	font-family:'Kreon';
+	color:rgba(20,20,250,0.7);
+}
+p{
+	font-family:'Ubuntu';	
+}
+.fondoApp{
+    background: url("img/ElGol.jpeg") no-repeat top center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
