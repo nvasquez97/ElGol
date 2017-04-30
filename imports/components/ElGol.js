@@ -18,7 +18,7 @@ export default class UserForm extends Component{
               	<input className="inputText" id="nombreR" placeholder="Ingresa tu nombre"/>
               	<br></br>
               	<label htmlFor="passR">Contraseña:</label>
-              	<input className="inputText" id="passR" placeholder="Ingresa tu constraseña"/>
+              	<input className="inputText" id="passR" type="password" placeholder="Ingresa tu constraseña"/>
               	<div className="buttonsL" id="sig">
 					<button className="btn btn-primary"> Registrarse </button>
 				</div>
@@ -36,7 +36,7 @@ export default class UserForm extends Component{
               	<input className="inputText" id="userL" placeholder="Ingresa nombre de usuario"/>
               	<br></br>
               	<label htmlFor="passL">Contraseña:</label>
-              	<input className="inputText" id="passL" placeholder="Ingresa tu constraseña"/>
+              	<input className="inputText" id="passL" type="password" placeholder="Ingresa tu constraseña"/>
               	<div className="buttonsL" >
 						<button className="btn btn-primary"> Inicia Sesión </button>
 				</div>
