@@ -4,5 +4,6 @@ import ReactDOM from 'react-dom';
 import App from '../imports/app.js';
 
 Meteor.startup(() => {
-  ReactDOM.render(<App/>, document.querySelector('.app'));
+	$('html').attr('lang','es'); 
+	ReactDOM.render(<App/>, document.querySelector('.app'));
 });
