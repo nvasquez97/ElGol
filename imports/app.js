@@ -17,6 +17,7 @@ export default class App extends Component {
 		this.setState({
 			estado: "Registrarse",
 		});
+		document.getElementById('sig').scrollIntoView();
 	}
 
 	iniciaS()
@@ -24,8 +25,9 @@ export default class App extends Component {
 		this.setState({
 			estado: "Inicia sesión",
 		});
+		document.getElementById('sig').scrollIntoView();
 	}
-	
+
 	render()
 	{
 		return(
@@ -39,7 +41,6 @@ export default class App extends Component {
 					<br></br>
 					Crea una cuenta, añade tus equipos y descubre.
 					</h4>
-				
 					<div className="buttonsL">
 						<button className="btn btn-primary" onClick={()=> this.registrarse()}> Registrarse </button>
 						<button className="btn btn-danger" onClick={()=> this.iniciaS()}> Iniciar sesión </button>

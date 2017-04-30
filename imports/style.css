@@ -14,8 +14,20 @@ h4, h5{
 	font-size: xx-large;
 	text-align: justify;
 }
+.formU>h5{
+	padding-top: 30%;
+	padding-bottom: 10%;
+}
+.formU{
+	background-color: rgba(250,250,250,0.5);
+	text-align: center;
+}
 p{
 	font-family:'Ubuntu';	
+}
+label{
+	color:rgba(255, 0, 47, 0.9);	
+	font-family:'Ubuntu';
 }
 .fondoApp{
     background: url("img/ElGol.jpeg") no-repeat top center fixed;
