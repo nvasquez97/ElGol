@@ -1,18 +1,18 @@
 # ElGol
 
-Con El GOLencontrarás tus equipos favoritos, podrás ver sus resultados y podrás encontrar vídeos de los eventos importantes de cada partido y de todos sus goles. 
+Con El GOL encontrarás tus equipos favoritos, podrás ver sus resultados y podrás encontrar vídeos de los eventos importantes de cada partido y de todos sus goles. 
 
-#Pasos para instalar
+# Pasos para instalar
 
 ```
 meteor npm install
 meteor
 ```
 
-#Puedes visitar nuestra pagina Web
-<https://www.elgol.herokuapp.com>
+# Puedes visitar nuestra pagina Web
+* <https://www.elgol.herokuapp.com>
 
-#Pasos que hacen falta
+# Pasos que hacen falta
 1. Login
 2. React-Router
 3. Youtube API
