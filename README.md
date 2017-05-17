@@ -10,7 +10,7 @@ meteor
 ```
 
 ## Puedes visitar nuestra pagina Web
-* <https://www.elgol.herokuapp.com>
+* <https://elgol.herokuapp.com>
 
 # Pasos que hacen falta
 1. Login
@@ -21,4 +21,3 @@ meteor
 	1. Mis partidos/jugadores
 	2. Añadir partidos/jugadores
 	3. Videos de mis equipos/jugadores
-
