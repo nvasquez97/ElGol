@@ -1,30 +1,7 @@
-{"_id":"1","key":1,"id_equipo1":9,"id_equipo2":1,"goles1":2,"goles2":0, "torneo":"Liga Aguila"}
-{"_id":"2","key":2,"id_equipo1":3,"id_equipo2":8,"goles1":0,"goles2":1, "torneo":"Liga Aguila"}
-{"_id":"3","key":3,"id_equipo1":2,"id_equipo2":10,"goles1":2,"goles2":1, "torneo":"Liga Aguila"}
-{"_id":"4","key":4,"id_equipo1":1,"id_equipo2":2,"goles1":0,"goles2":1, "torneo":"Liga Aguila"}
-{"_id":"5","key":5,"id_equipo1":10,"id_equipo2":3,"goles1":3,"goles2":1, "torneo":"Liga Aguila"}
-{"_id":"6","key":6,"id_equipo1":3,"id_equipo2":11,"goles1":1,"goles2":0, "torneo":"Liga Aguila"}
-{"_id":"7","key":7,"id_equipo1":10,"id_equipo2":1,"goles1":2,"goles2":1, "torneo":"Liga Aguila"}
-{"_id":"8","key":8,"id_equipo1":2,"id_equipo2":12,"goles1":2,"goles2":0, "torneo":"Liga Aguila"}
-{"_id":"9","key":9,"id_equipo1":12,"id_equipo2":1,"goles1":1,"goles2":2, "torneo":"Liga Aguila"}
-{"_id":"10","key":10,"id_equipo1":3,"id_equipo2":14,"goles1":2,"goles2":2, "torneo":"Liga Aguila"}
-{"_id":"11","key":11,"id_equipo1":13,"id_equipo2":2,"goles1":0,"goles2":1, "torneo":"Liga Aguila"}
-{"_id":"12","key":12,"id_equipo1":15,"id_equipo2":3,"goles1":0,"goles2":0, "torneo":"Liga Aguila"}
-{"_id":"13","key":13,"id_equipo1":1,"id_equipo2":13,"goles1":2,"goles2":0, "torneo":"Liga Aguila"}
-{"_id":"14","key":14,"id_equipo1":2,"id_equipo2":16,"goles1":1,"goles2":0, "torneo":"Liga Aguila"}
 {"_id":"15","key":15,"id_equipo1":2,"id_equipo2":17,"goles1":0,"goles2":2, "torneo":"Conmebol Libertadores"}
 {"_id":"16","key":16,"id_equipo1":18,"id_equipo2":2,"goles1":1,"goles2":0, "torneo":"Conmebol Libertadores"}
 {"_id":"17","key":17,"id_equipo1":3,"id_equipo2":20,"goles1":3,"goles2":0, "torneo":"Conmebol Libertadores"}
 {"_id":"18","key":18,"id_equipo1":3,"id_equipo2":19,"goles1":0,"goles2":0, "torneo":"Conmebol Libertadores"}
-{"_id":"19","key":19,"id_equipo1":4,"id_equipo2":28,"goles1":1,"goles2":1, "torneo":"La Liga Santander"}
-{"_id":"20","key":20,"id_equipo1":27,"id_equipo2":5,"goles1":2,"goles2":0, "torneo":"La Liga Santander"}
-{"_id":"21","key":21,"id_equipo1":26,"id_equipo2":4,"goles1":2,"goles2":3, "torneo":"La Liga Santander"}
-{"_id":"22","key":22,"id_equipo1":5,"id_equipo2":25,"goles1":3,"goles2":2, "torneo":"La Liga Santander"}
-{"_id":"23","key":23,"id_equipo1":4,"id_equipo2":5,"goles1":2,"goles2":3, "torneo":"La Liga Santander"}
-{"_id":"24","key":24,"id_equipo1":5,"id_equipo2":23,"goles1":7,"goles2":1, "torneo":"La Liga Santander"}
-{"_id":"25","key":25,"id_equipo1":24,"id_equipo2":4,"goles1":2,"goles2":6, "torneo":"La Liga Santander"}
-{"_id":"26","key":26,"id_equipo1":4,"id_equipo2":21,"goles1":2,"goles2":1, "torneo":"La Liga Santander"}
-{"_id":"27","key":27,"id_equipo1":22,"id_equipo2":5,"goles1":0,"goles2":3, "torneo":"La Liga Santander"}
 {"_id":"28","key":28,"id_equipo1":4,"id_equipo2":30,"goles1":4,"goles2":2, "torneo":"UEFA Champions League"}
 {"_id":"29","key":29,"id_equipo1":30,"id_equipo2":4,"goles1":1,"goles2":2, "torneo":"UEFA Champions League"}
 {"_id":"30","key":30,"id_equipo1":5,"id_equipo2":29,"goles1":6,"goles2":1, "torneo":"UEFA Champions League"}
@@ -33,4 +10,3 @@
 {"_id":"33","key":33,"id_equipo1":7,"id_equipo2":5,"goles1":3,"goles2":0, "torneo":"UEFA Champions League"}
 {"_id":"34","key":34,"id_equipo1":31,"id_equipo2":6,"goles1":2,"goles2":3, "torneo":"UEFA Champions League"}
 {"_id":"35","key":35,"id_equipo1":6,"id_equipo2":31,"goles1":3,"goles2":1, "torneo":"UEFA Champions League"}
-
