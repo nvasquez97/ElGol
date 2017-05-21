@@ -17,10 +17,22 @@ export default class App extends Component {
 
 	nombre(nombreNuevo)
 	{
-		this.setState({
+		
+		if(nombreNuevo!=="login")
+		{
+			Meteor.call('user.insertName', nombreNuevo, Meteor.userId());	
+			this.setState({
 			nombreUsuario:nombreNuevo,
 		});
-		Meteor.call('user.insertName', nombreNuevo, Meteor.userId());
+		}
+		else{
+			
+			let user = Usuarios.find({"_id":Meteor.userId()}).fetch()[0];
+			this.setState({
+			nombreUsuario:user.nombre,
+		});
+		}
+		
 	}
 	registrarse()
 	{
@@ -40,12 +52,13 @@ export default class App extends Component {
 
 	render()
 	{
+		Meteor.subscribe('usuarios');
 		return(
 			<div className="fondoApp">
 			<div className="row">
 				<div className="col-md-7">
 					<div className="container elG">
-					<h1 className="elGolT">El GOL</h1>
+					<h1 className="elGolT">El GOL {this.state.nombreUsuario}</h1>
 					<h4>Con <span> El GOL</span> encontrarás tus equipos favoritos, podrás ver sus resultados y podrás encontrar 
 					vídeos de los eventos importantes de cada partido y de todos sus goles. 
 					<br></br>

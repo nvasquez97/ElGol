@@ -47,7 +47,24 @@ export default class UserForm extends Component{
 		}
 		else
 		{
+			let pass = document.getElementById('passL').value;
+			if(pass ==="" || this.state.user ==="")
+			{
 
+			}
+			else
+			{
+				Meteor.loginWithPassword(this.state.user, pass, (error)=>{
+					if(error)
+					{
+
+					}
+					else
+					{
+						this.props.nombre("login");
+					}
+				});
+			}
 		}
 	}
 
@@ -110,7 +127,7 @@ export default class UserForm extends Component{
 				</div>
 				</div>
 				<div className="buttonsL col-sm-11" >
-				<button className="btn btn-primary"> Inicia Sesión </button>
+				<button className="btn btn-primary" onClick={this.sumbmission.bind(this)}> Inicia Sesión </button>
 				</div>
 				</div>
 				);
