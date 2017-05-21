@@ -16,11 +16,10 @@ meteor
 * Not yet
 
 ## Pasos que hacen falta
-1. Login
-2. React-Router
-3. Youtube API
-4. Fill DB ...solo faltan jugadores
-5. Finish Templates
+1. React-Router
+2. Youtube API
+3. Fill DB ...solo faltan jugadores
+4. Finish Templates
 	1. Mis partidos/jugadores
 	2. Añadir partidos/jugadores
 	3. Videos de mis equipos/jugadores

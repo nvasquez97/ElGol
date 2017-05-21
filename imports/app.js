@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserForm from './components/ElGol.js'
 import Usuarios from './api/usuarios.js';
-
+import TusEquipos from './components/tusEquipos.js'
 import './style.css';
 
 export default class App extends Component {
@@ -52,6 +52,12 @@ export default class App extends Component {
 	render()
 	{
 		Meteor.subscribe('usuarios');
+		if(Meteor.userId())
+		{
+			return (
+				<TusEquipos />
+				);
+		}
 		return(
 			<div className="fondoApp">
 			<div className="row">
