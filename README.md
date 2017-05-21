@@ -12,7 +12,10 @@ meteor
 ## Puedes visitar nuestra pagina Web
 * <https://elgol.herokuapp.com>
 
-# Pasos que hacen falta
+## Mira nuestro video de demostración
+* Not yet
+
+## Pasos que hacen falta
 1. Login
 2. React-Router
 3. Youtube API

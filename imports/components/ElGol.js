@@ -11,6 +11,7 @@ export default class UserForm extends Component{
 				<h5 id="sig">
 				{this.props.estado}:
 				</h5>
+				<form>
 				<div className="form-group">
 				<label className="control-label col-sm-5" htmlFor="userR">Usuario:</label>
 				<div className="col-sm-11">
@@ -32,6 +33,7 @@ export default class UserForm extends Component{
 				<div className="buttonsL col-sm-11" id="sig">
 				<button className="btn btn-primary" type="submit"> Registrarse </button>
 				</div>
+				</form>
 				</div>
 				);
 		}
@@ -42,6 +44,7 @@ export default class UserForm extends Component{
 				<h5 id="sig">
 				{this.props.estado}:
 				</h5>
+				<form>
 				<div className="form-group">
 				<label className="control-label col-sm-2" htmlFor="userL">Usuario:</label>
 				<div className="col-sm-11">
@@ -57,6 +60,7 @@ export default class UserForm extends Component{
 				<div className="buttonsL col-sm-11" >
 				<button className="btn btn-primary" type="submit"> Inicia Sesión </button>
 				</div>
+				</form>
 				</div>
 				);
 		}

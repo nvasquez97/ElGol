@@ -32,6 +32,7 @@ export default class App extends Component {
 	{
 		return(
 			<div className="fondoApp">
+			{{> loginButtons}}
 			<div className="row">
 				<div className="col-md-7">
 					<div className="container elG">
