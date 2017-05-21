@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import UserForm from './components/ElGol.js'
+import Usuarios from './api/usuarios.js';
+
 import './style.css';
 
 export default class App extends Component {
@@ -9,9 +11,17 @@ export default class App extends Component {
 		super(props);
 		this.state = {
 			estado: "Inicia sesión",
+			nombreUsuario:'',
 		};
 	}
 
+	nombre(nombreNuevo)
+	{
+		this.setState({
+			nombreUsuario:nombreNuevo,
+		});
+		Meteor.call('user.insertName', nombreNuevo, Meteor.userId());
+	}
 	registrarse()
 	{
 		this.setState({
@@ -32,7 +42,6 @@ export default class App extends Component {
 	{
 		return(
 			<div className="fondoApp">
-			{{> loginButtons}}
 			<div className="row">
 				<div className="col-md-7">
 					<div className="container elG">
@@ -49,7 +58,7 @@ export default class App extends Component {
 					</div>
 				</div>
 				<div className="col-md-5 userF">
-					<UserForm estado={this.state.estado} />
+					<UserForm estado={this.state.estado} nombre={this.nombre.bind(this)}/>
 				</div>
 			</div>
 			</div>);
