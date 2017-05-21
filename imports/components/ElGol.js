@@ -30,7 +30,7 @@ export default class UserForm extends Component{
 				</div>
 				</div>
 				<div className="buttonsL col-sm-11" id="sig">
-				<button className="btn btn-primary"> Registrarse </button>
+				<button className="btn btn-primary" type="submit"> Registrarse </button>
 				</div>
 				</div>
 				);
@@ -55,7 +55,7 @@ export default class UserForm extends Component{
 				</div>
 				</div>
 				<div className="buttonsL col-sm-11" >
-				<button className="btn btn-primary"> Inicia Sesión </button>
+				<button className="btn btn-primary" type="submit"> Inicia Sesión </button>
 				</div>
 				</div>
 				);

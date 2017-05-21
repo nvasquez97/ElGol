@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 
-export cons Jugadores = new Mongo.Collection('jugadores');
+export const Jugadores = new Mongo.Collection('jugadores');
 
 if(Meteor.isServer)
 {

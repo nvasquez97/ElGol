@@ -47,7 +47,7 @@ export default class App extends Component {
 					</div>
 					</div>
 				</div>
-				<div className="col-md-5">
+				<div className="col-md-5 userF">
 					<UserForm estado={this.state.estado} />
 				</div>
 			</div>

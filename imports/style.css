@@ -21,6 +21,7 @@ h4, h5{
 .formU{
 	background-color: rgba(250,250,250,0.5);
 	text-align: center;
+	width:75%;
 }
 p{
 	font-family:'Ubuntu';	
@@ -54,6 +55,9 @@ span{
 .formR{
 	display: none;
 }
-.form-horizontal{
-	position:absolute;
+.userF{
+	padding-top: 2.5%;
+	padding-bottom: 5%
 }
+/*.form-horizontal{
+	position:absolute;}*/
