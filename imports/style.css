@@ -59,5 +59,23 @@ span{
 	padding-top: 2.5%;
 	padding-bottom: 5%
 }
+.titJugadores{
+	padding-top: 5%;
+	text-align: center;
+}
+.tusEquipos{
+	padding-top: 5%;
+	display:inline-block;
+	width:100%;	
+}
+.tusEDerecha{
+	max-width: 20%;
+	float: right;
+}
+.tusEIzquierda{
+	max-width:75%;
+	float:left;
+}
+
 /*.form-horizontal{
 	position:absolute;}*/
