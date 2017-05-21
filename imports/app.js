@@ -26,11 +26,10 @@ export default class App extends Component {
 		});
 		}
 		else{
-			
 			let user = Usuarios.find({"_id":Meteor.userId()}).fetch()[0];
 			this.setState({
-			nombreUsuario:user.nombre,
-		});
+				nombreUsuario:user.nombre,
+			});
 		}
 		
 	}

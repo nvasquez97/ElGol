@@ -6,9 +6,9 @@ export const Usuarios = new Mongo.Collection('usuarios');
 if(Meteor.isServer)
 {
 	Meteor.publish('usuarios', function getPartidos(){
-		if(Meteor.userId()!==null)
+		if(this.userId!==null)
 		{
-			return Usuarios.find({"_id":Meteor.userId()});	
+			return Usuarios.find({"_id":this.userId});	
 		}
 		else
 		{
