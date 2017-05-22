@@ -23,3 +23,6 @@ meteor
 	1. Mis equipos/jugadores
 	2. Añadir equipos/jugadores
 	3. Videos de mis equipos/jugadores
+5. Tests
+6. Pruebas usabilidad
+7. Video

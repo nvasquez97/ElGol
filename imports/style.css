@@ -80,5 +80,17 @@ span{
 	font-size: 50px;
 	text-align: center;
 }
+.partido{
+	display: inline-block;
+	width:100%;
+}
+.partidoI{
+	float:left;
+	width:50%;
+}
+.partidoD{
+	float:right;
+	width: 50%;
+}
 /*.form-horizontal{
 	position:absolute;}*/

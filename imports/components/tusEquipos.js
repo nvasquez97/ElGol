@@ -37,9 +37,9 @@ export default class TusEquipos extends Component {
 	render() {
 		if(Meteor.userId())
 		{
-			if(this.state.patidos)
+			if(this.state.partidos)
 			{
-				return <Redirect to="/partidos" />
+				return <Redirect to="partidos" />
 			}
 			else
 			{

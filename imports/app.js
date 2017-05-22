@@ -40,11 +40,10 @@ export default class App extends Component {
 
 	render()
 	{
-		Meteor.subscribe('usuarios');
 		if(Meteor.userId())
 		{
 			return (
-				<Redirect to="/tusEquipos" />
+				<Redirect to="partidos" />
 				);
 		}
 		return(
