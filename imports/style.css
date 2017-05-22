@@ -59,30 +59,20 @@ span{
 	padding-top: 2.5%;
 	padding-bottom: 5%
 }
-.titJugadores{
-	padding-top: 5%;
+.tusEquipos{	
 	text-align: center;
-}
-.tusEquipos{
-	padding-top: 5%;
-	display:inline-block;
-	width:100%;	
-}
-.tusEDerecha{
-	max-width: 20%;
-	float: right;
-}
-.tusEIzquierda{
-	max-width:75%;
-	float:left;
 }
 .tituloTemp{
 	font-size: 50px;
 	text-align: center;
+	padding-top: 5%;
 }
 .partido{
 	display: inline-block;
 	width:100%;
+}
+.gris:hover{
+	background-color: rgba(200,200,200,0.5);
 }
 .partidoI{
 	float:left;
@@ -91,6 +81,20 @@ span{
 .partidoD{
 	float:right;
 	width: 50%;
+}
+.tEquipo{
+	text-align: center;
+}
+.imgEquipo{
+	max-width: 100px;
+	max-height:100px;
+	text-align: center
+}
+.centerImg{
+	text-align: center;
+}
+.equipo:hover{
+	background-color: rgba(200,200,200,0.5);
 }
 /*.form-horizontal{
 	position:absolute;}*/

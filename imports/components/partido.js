@@ -6,7 +6,7 @@ export default class Partido extends Component {
 	render()
 	{
 		return(
-			<div className="container col-md-6">
+			<div className="container col-md-6 gris" title="¡Haz click!">
 				<hr></hr>
 				<div className="partido">
 					<div className="partidoI">

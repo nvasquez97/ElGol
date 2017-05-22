@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import TusJugadores from './tusJugadores.js';
+import Equipo from './equipo.js';
 
 export default class TusEquipos extends Component {
 
@@ -47,14 +48,15 @@ export default class TusEquipos extends Component {
 			<div>
 				<div className="selectTeam container col-md-8">
 					<div className="tusEquipos">
-						<div className="tusEIzquierda">
 							<h1 className="tituloTemp">Equipos</h1>
-						</div>
-						<div className="tusEDerecha">
-							<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
-						</div>
 					</div>
 					<hr></hr>
+					<div className="row">
+						<Equipo />
+						<Equipo />
+						<Equipo />
+						<Equipo />
+					</div>
 					<div className="dropdown">
 						<button className="dropbtn">Dropdown</button>
 						<div className="dropdown-content">
@@ -68,6 +70,7 @@ export default class TusEquipos extends Component {
 						</div>
 					</div>
 					<hr></hr>
+					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
 				</div>
 				<div className="col-md-4">
 					<TusJugadores/>
