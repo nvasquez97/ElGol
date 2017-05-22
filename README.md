@@ -17,7 +17,7 @@ meteor
 
 ## Pasos que hacen falta
 1. React-Router.. Ya esta!
-2. Youtube API
+2. Youtube ... Ya recibe info!
 3. Fill DB ...solo faltan jugadores
 4. Finish Templates
 	1. Mis equipos/jugadores
