@@ -11,7 +11,6 @@ export default class TusEquipos extends Component {
 		this.state = {
 			login:true,
 			partidos:false,
-			anadir:false,
 		}
 	}
 

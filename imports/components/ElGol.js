@@ -123,7 +123,7 @@ export default class UserForm extends Component{
 		{
 			if(Meteor.userId())
 			{
-				return <Redirect to="/partidos" />
+				return <Redirect to='/partidos' />
 			}
 			else
 			{
