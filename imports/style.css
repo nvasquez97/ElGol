@@ -3,11 +3,11 @@
 	font-size: 180px;
 	text-align: center;
 }
-h1, h2, h3{
+h1, h2{
 	font-family:'Kreon';
 	color:rgba(20, 20, 250, 0.7);
 }
-h4, h5{
+h3, h4, h5{
 	color:rgba(255, 0, 47, 0.9);	
 	font-family:'Ubuntu';
 	font-weight: bold;
@@ -76,6 +76,9 @@ span{
 	max-width:75%;
 	float:left;
 }
-
+.tituloTemp{
+	font-size: 50px;
+	text-align: center;
+}
 /*.form-horizontal{
 	position:absolute;}*/

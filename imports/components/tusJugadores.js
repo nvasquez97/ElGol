@@ -7,7 +7,7 @@ export default class TusJugadores extends Component {
 	{
 		return(
 			<div className="container">
-				<h1 className="titJugadores">Tus Jugadores</h1>
+				<h1 className="titJugadores tituloTemp">Jugadores</h1>
 				<hr></hr>
 			</div>
 			);

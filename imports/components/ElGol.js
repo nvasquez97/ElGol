@@ -81,15 +81,15 @@ export default class UserForm extends Component{
 
 	render()
 	{
-		if(Meteor.userId())
-		{
-			return <Redirect to="/tusEquipos" />
-		}
-		else
-		{
 		if(this.props.estado==="Registrarse")
 		{
-			return(
+			if(Meteor.userId())
+			{
+				return <Redirect to="/tusEquipos" />
+			}
+			else
+			{
+				return(
 				<div className="container formU form-horizontal">
 					<h5 id="sig">
 						{this.props.estado}:
@@ -117,9 +117,16 @@ export default class UserForm extends Component{
 					</div>
 				</div>
 				);
+			}
 		}
 		else
 		{
+			if(Meteor.userId())
+			{
+				return <Redirect to="/partidos" />
+			}
+			else
+			{
 			return(
 				<div className="container formU form-horizontal">
 					<h5 id="sig">
@@ -142,7 +149,7 @@ export default class UserForm extends Component{
 					</div>
 				</div>
 				);
-		}
+			}
 		}
 	}
 }

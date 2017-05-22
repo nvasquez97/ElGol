@@ -5,11 +5,19 @@ import TusJugadores from './tusJugadores.js';
 
 export default class TusEquipos extends Component {
 
-	contructor(props)
+	constructor(props)
 	{
+		super(props)
 		this.state = {
 			login:true,
+			partidos:false,
+			anadir:false,
 		}
+	}
+
+	irAPartidos()
+	{
+		this.setState({partidos:true});
 	}
 
 	logOut()
@@ -30,12 +38,18 @@ export default class TusEquipos extends Component {
 	render() {
 		if(Meteor.userId())
 		{
-		return(
+			if(this.state.patidos)
+			{
+				return <Redirect to="/partidos" />
+			}
+			else
+			{
+				return(
 			<div>
 				<div className="selectTeam container col-md-8">
 					<div className="tusEquipos">
 						<div className="tusEIzquierda">
-							<h1>Tus Equipos</h1>
+							<h1 className="tituloTemp">Equipos</h1>
 						</div>
 						<div className="tusEDerecha">
 							<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
@@ -49,7 +63,10 @@ export default class TusEquipos extends Component {
 							<a href="#">Link 2</a>
 							<a href="#">Link 3</a>
 						</div>
-						<button className="btn btn-success"> Añadir equipos </button>
+						<div className="botones">
+							<button className="btn btn-success"> Añadir equipos </button>
+							<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
+						</div>
 					</div>
 					<hr></hr>
 				</div>
@@ -58,6 +75,7 @@ export default class TusEquipos extends Component {
 				</div>
 			</div>
 			);
+			}
 		}
 		else
 		{
