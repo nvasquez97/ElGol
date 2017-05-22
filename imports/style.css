@@ -72,7 +72,7 @@ span{
 	width:100%;
 }
 .gris:hover{
-	background-color: rgba(200,200,200,0.5);
+	background-color: rgba(20, 20, 250,0.1);
 }
 .partidoI{
 	float:left;
@@ -94,7 +94,7 @@ span{
 	text-align: center;
 }
 .equipo:hover{
-	background-color: rgba(200,200,200,0.5);
+	background-color: rgba(20, 20, 250,0.1);
 }
 /*.form-horizontal{
 	position:absolute;}*/

@@ -16,20 +16,6 @@ export default class Videos extends Component{
 			highlights:[],
 		}
 	}
-	logOut()
-	{
-		Meteor.logout((error) =>
-			{
-				if(error)
-				{
-
-				}
-				else
-				{
-					this.setState({login:false});
-				}
-			});
-	}
 	searchVideos()
 	{
 		Youtube({key:API_K, term:'Goles Millonarios vs. Patriotas'}, (videos)=>
@@ -59,7 +45,6 @@ export default class Videos extends Component{
 		{
 			return(
 			<div className="container">
-				<h1 className="tituloTemp"> Videos </h1>
 				<hr></hr>
 				<div className="videos">
 					<div className="row">
@@ -73,7 +58,6 @@ export default class Videos extends Component{
 						<hr></hr>
 					</div>
 				</div>
-				<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
 			</div>
 			);
 		}
