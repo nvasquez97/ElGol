@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import UserForm from './components/ElGol.js'
 import Usuarios from './api/usuarios.js';
-import TusEquipos from './components/tusEquipos.js'
+
 import './style.css';
 
 export default class App extends Component {
@@ -17,21 +18,9 @@ export default class App extends Component {
 
 	nombre(nombreNuevo)
 	{
-		
-		if(nombreNuevo!=="login")
-		{
-			Meteor.call('user.insertName', nombreNuevo, Meteor.userId());	
-			this.setState({
-			nombreUsuario:nombreNuevo,
-		});
-		}
-		else{
-			let user = Usuarios.find({"_id":Meteor.userId()}).fetch()[0];
-			this.setState({
-				nombreUsuario:user.nombre,
-			});
-		}
-		
+		Meteor.call('user.insertName', nombreNuevo, Meteor.userId());	
+		this.setState(
+			{nombreUsuario:nombreNuevo,	});
 	}
 	registrarse()
 	{
@@ -55,7 +44,7 @@ export default class App extends Component {
 		if(Meteor.userId())
 		{
 			return (
-				<TusEquipos />
+				<Redirect to="/tusEquipos" />
 				);
 		}
 		return(
@@ -63,7 +52,7 @@ export default class App extends Component {
 			<div className="row">
 				<div className="col-md-7">
 					<div className="container elG">
-					<h1 className="elGolT">El GOL {this.state.nombreUsuario}</h1>
+					<h1 className="elGolT">El GOL</h1>
 					<h4>Con <span> El GOL</span> encontrarás tus equipos favoritos, podrás ver sus resultados y podrás encontrar 
 					vídeos de los eventos importantes de cada partido y de todos sus goles. 
 					<br></br>
@@ -79,6 +68,7 @@ export default class App extends Component {
 					<UserForm estado={this.state.estado} nombre={this.nombre.bind(this)}/>
 				</div>
 			</div>
+			
 			</div>);
 	}
 }

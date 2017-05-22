@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Accounts } from 'meteor/accounts-base';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import TusEquipos from './tusEquipos.js'
+import { Redirect } from 'react-router-dom';
 
 export default class UserForm extends Component{
 
@@ -7,6 +10,7 @@ export default class UserForm extends Component{
 	{
 		this.state = {
 			user:'',
+			login:false,
 		}
 	}
 
@@ -39,6 +43,7 @@ export default class UserForm extends Component{
 							}
 							else{
 								this.props.nombre(nombre);
+								this.setState({login:true});
 							}
 						});
 					}
@@ -61,7 +66,7 @@ export default class UserForm extends Component{
 					}
 					else
 					{
-						this.props.nombre("login");
+						this.setState({login:true});
 					}
 				});
 			}
@@ -76,6 +81,12 @@ export default class UserForm extends Component{
 
 	render()
 	{
+		if(Meteor.userId())
+		{
+			return <Redirect to="/tusEquipos" />
+		}
+		else
+		{
 		if(this.props.estado==="Registrarse")
 		{
 			return(
@@ -131,6 +142,7 @@ export default class UserForm extends Component{
 					</div>
 				</div>
 				);
+		}
 		}
 	}
 }

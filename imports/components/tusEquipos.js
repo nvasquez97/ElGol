@@ -1,7 +1,16 @@
 'use strict';
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import TusJugadores from './tusJugadores.js';
+
 export default class TusEquipos extends Component {
+
+	contructor(props)
+	{
+		this.state = {
+			login:true,
+		}
+	}
 
 	logOut()
 	{
@@ -13,12 +22,14 @@ export default class TusEquipos extends Component {
 				}
 				else
 				{
-
+					this.setState({login:false});
 				}
 			});
 	}
 
 	render() {
+		if(Meteor.userId())
+		{
 		return(
 			<div>
 				<div className="selectTeam container col-md-8">
@@ -47,5 +58,12 @@ export default class TusEquipos extends Component {
 				</div>
 			</div>
 			);
+		}
+		else
+		{
+			return(
+				<Redirect to="/"/>
+				);
+		}
 	}
 }
