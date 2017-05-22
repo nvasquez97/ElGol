@@ -16,7 +16,7 @@ meteor
 * Not yet
 
 ## Pasos que hacen falta
-1. React-Router
+1. React-Router.. Ya esta!
 2. Youtube API
 3. Fill DB ...solo faltan jugadores
 4. Finish Templates
