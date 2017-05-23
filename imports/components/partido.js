@@ -23,17 +23,19 @@ export default class Partido extends Component {
 	render()
 	{
 			return(
-			<div className="container col-md-6 gris" title="¡Haz click!" onClick={this.irAVideo.bind(this)}>
-				<hr></hr>
-				<div className="partido">
-					<div className="partidoI">
-						<h5> Millonarios &emsp;<span>1</span></h5>
+			<div className="container col-md-6" >
+				<div className="gris" title="¡Haz click!" onClick={this.irAVideo.bind(this)}>
+					<hr></hr>
+					<div className="partido">
+						<div className="partidoI">
+							<h5> Millonarios &emsp;<span>2</span></h5>
+						</div>
+						<div className="partidoD">
+							<h5> &emsp; <span>0</span>&emsp;	Patriotas</h5>
+						</div>
 					</div>
-					<div className="partidoD">
-						<h5> <span>1</span>&emsp;	Santa Fé</h5>
-					</div>
+					<hr></hr>
 				</div>
-				<hr></hr>
 				{this.state.video?
 					<Videos />
 					:

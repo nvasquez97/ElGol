@@ -18,13 +18,13 @@ export default class Video extends Component{
 			{this.props.goles.map(gol=>{
 					if(gol === this.props.goles[0] || gol === this.props.goles[1])
 					{
-						return (<div className="col-md-3" key={gol.id.videoId}>
-								<p> Soy varios videos de YT</p>
+						return (<div className="col-md-3 gris" key={gol.id.videoId}>
+								<p> {gol.snippet.title}</p>
 							</div>
 							)
 					}
-					return (<div className="col-md-2" key={gol.id.videoId}>
-								<p> Soy varios videos de YT</p>
+					return (<div className="col-md-2 gris" key={gol.id.videoId}>
+								<p>{gol.snippet.title}</p>
 							</div>)
 				})}
 			</div>
@@ -37,13 +37,13 @@ export default class Video extends Component{
 			{this.props.high.map(gol=>{
 					if(gol === this.props.high[0] || gol === this.props.high[1])
 					{
-						return (<div className="col-md-3" key={gol.id.videoId}>
-								<p> Soy varios videos de YT</p>
+						return (<div className="col-md-3 gris" key={gol.id.videoId}>
+								<p> {gol.snippet.title}</p>
 							</div>
 							)
 					}
-					return (<div className="col-md-2" key={gol.id.videoId}>
-								<p> Soy varios videos de YT</p>
+					return (<div className="col-md-2 gris" key={gol.id.videoId}>
+								<p> {gol.snippet.title}</p>
 							</div>)
 				})}
 			</div>

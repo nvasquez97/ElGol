@@ -48,7 +48,6 @@ export default class Partidos extends Component{
 					<hr></hr>
 					<div className="row">
 						<Partido/>
-						<Partido/>
 					</div>
 					<button className="btn btn-primary" onClick={this.equipos.bind(this)}> Ve a Tus Equipos</button>
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>

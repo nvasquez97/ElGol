@@ -14,18 +14,19 @@ export default class Videos extends Component{
 		this.state={
 			goles:[],
 			highlights:[],
+			videoId:"4R9RUXKhNHY",
 		}
 	}
 	searchVideos()
 	{
-		Youtube({key:API_K, term:'Goles Millonarios vs. Patriotas'}, (videos)=>
+		Youtube({key:API_K, term:'millonarios patriotas', channelId:'UCZjpA3YBPXvJv3pg4SPEjfw'}, (videos)=>
 		{	
 			console.log(videos)	;
 			this.setState({
 				goles:videos,
 			});	
 		});
-		Youtube({key:API_K, term:'HighLights Millonarios vs. Patriotas'}, (videos)=>
+		Youtube({key:API_K, term:'millonarios patriotas'}, (videos)=>
 		{
 			this.setState({
 				highlights:videos,
@@ -45,7 +46,10 @@ export default class Videos extends Component{
 		{
 			return(
 			<div className="container">
-				<hr></hr>
+				<div  className="embed-responsive embed-responsive-16by9">
+            		<iframe className="embed-responsive-item" src="https://www.youtube.com/embed/{this.state.videoId}?autoplay=1" ></iframe>
+          		</div>
+          		<hr></hr>
 				<div className="videos">
 					<div className="row">
 						<h4> Goles</h4>

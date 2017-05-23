@@ -16,13 +16,12 @@ meteor
 * Not yet
 
 ## Pasos que hacen falta
-1. React-Router.. Ya esta!
-2. Youtube ... Ya recibe info!
-3. Fill DB ...solo faltan jugadores
-4. Finish Templates
-	1. Mis equipos/jugadores
-	2. Añadir equipos/jugadores
-	3. Videos de mis equipos/jugadores
-5. Tests
-6. Pruebas usabilidad
-7. Video
+1. Youtube ... Ya recibe info!
+2. Fill DB ...solo faltan jugadores
+3. Finish Templates
+	1. Mis equipos/jugadores .. ya hay
+	2. Añadir equipos/jugadores .. ya hay
+	3. Videos de mis equipos/jugadores .. ya hay
+4. Tests
+5. Pruebas usabilidad
+6. Video

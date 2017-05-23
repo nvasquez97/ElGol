@@ -53,9 +53,6 @@ export default class TusEquipos extends Component {
 					<hr></hr>
 					<div className="row">
 						<Equipo />
-						<Equipo />
-						<Equipo />
-						<Equipo />
 					</div>
 					<div className="dropdown">
 						<button className="dropbtn">Dropdown</button>
