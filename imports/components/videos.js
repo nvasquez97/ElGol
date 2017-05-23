@@ -3,7 +3,6 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 're
 import { Redirect } from 'react-router-dom';
 import Youtube from 'youtube-api-search';
 import Video from './video.js';
-
 const API_K="AIzaSyD5gVIxzt4WtEBhoLVgSBgwUkcMMs-FGD0";
 
 export default class Videos extends Component{
@@ -14,19 +13,18 @@ export default class Videos extends Component{
 		this.state={
 			goles:[],
 			highlights:[],
-			videoId:"fKopy74weus",
+			videoId:"NoWqnjmh8KU",
 		}
 	}
 	searchVideos()
 	{
-		Youtube({key:API_K, term:'millonarios patriotas', channelId:'UCZjpA3YBPXvJv3pg4SPEjfw'}, (videos)=>
+		Youtube({key:API_K, term:'millonarios', channelId:'UCZjpA3YBPXvJv3pg4SPEjfw'}, (videos)=>
 		{	
-			console.log(videos)	;
 			this.setState({
 				goles:videos,
 			});	
 		});
-		Youtube({key:API_K, term:'millonarios patriotas'}, (videos)=>
+		Youtube({key:API_K, term:'millonarios'}, (videos)=>
 		{
 			this.setState({
 				highlights:videos,
@@ -47,7 +45,7 @@ export default class Videos extends Component{
 			return(
 			<div className="container">
 				<div  className="embed-responsive embed-responsive-16by9">
-            		<iframe className="embed-responsive-item" src="https://www.youtube.com/embed/{this.state.videoId}?autoplay=1" ></iframe>
+            		<iframe className="embed-responsive-item" src="https://www.youtube.com/embed/NoWqnjmh8KU?autoplay=1" ></iframe>
           		</div>
           		<hr></hr>
 				<div className="videos">
