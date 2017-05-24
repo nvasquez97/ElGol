@@ -34,8 +34,9 @@ export default class Videos extends Component{
 		
 	}
 	changeVideo(idVideo){
-		this.state.videoId=idVideo;
-		console.log(this.state.videoId);
+		this.setState({
+			videoId:idVideo,
+		});
 	}
 
 	getURL(){
@@ -53,7 +54,7 @@ export default class Videos extends Component{
 		if(Meteor.userId())
 		{
 			return(
-			<div className="container">
+			<div className="container vidGris">
 				<div  className="embed-responsive embed-responsive-16by9">
             		<iframe className="embed-responsive-item" src={this.getURL()} ></iframe>
           		</div>
@@ -61,7 +62,7 @@ export default class Videos extends Component{
 				<div className="videos">
 					<div className="row">
 						<h4> Goles</h4>
-						<Video goles={this.state.goles} changeVideo= {this.changeVideo.bind(this)}/>
+						<Video goles={this.state.goles} changeVideo={this.changeVideo.bind(this)}/>
 						<hr></hr>
 					</div>
 					<div className="row">

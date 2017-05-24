@@ -17,7 +17,7 @@ class TusEquipos extends Component {
 			login:true,
 			partidos:false,
 			misEquipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
-			equipos:[],
+			equipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
 			anadir:false,
 		}
 	}
@@ -34,11 +34,14 @@ class TusEquipos extends Component {
 
 	cargarEquipos()
 	{
+		let nuev = !this.state.anadir;
 		this.setState({
-			anadir:true,
+			anadir:nuev,
 		});
-		var equipos = Equipos.find({}).fetch();
-		equipos.map(equipo=>{
+		if(this.state.equipos.length<1)
+		{
+			var equipos = Equipos.find({}).fetch();
+			equipos.map(equipo=>{
 			if(equipo.url_escudo)
 			{
 				var nuevEquipos = this.state.misEquipos.push(equipo);
@@ -46,7 +49,8 @@ class TusEquipos extends Component {
 					equipos:nuevEquipos,
 				})
 			}
-		});
+			});	
+		}
 	}
 
 	logOut()
@@ -96,7 +100,7 @@ class TusEquipos extends Component {
 						<button className="btn btn-success" onClick={this.cargarEquipos.bind(this)}> Añadir equipos </button>
 						<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
 					</div>
-					{this.state.anadir? this.state.equipos.map(equipo=>{
+					{this.state.anadir ? this.state.equipos.map(equipo=>{
 							return <Equipo key={equipo._id} equipo={equipo} anadir={this.state.anadir}/>
 							})
 							: <span></span>

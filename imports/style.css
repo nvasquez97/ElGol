@@ -78,6 +78,9 @@ span{
 	background-color: rgba(256, 256, 256,0.7);
 	margin-top: 2%;
 }
+.vidGris{
+	background-color: rgba(256, 256, 256,0.7);
+}
 .gris:hover{
 	background-color: rgba(20, 20, 250,0.1);
 }
