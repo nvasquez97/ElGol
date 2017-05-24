@@ -9,7 +9,7 @@ import Partidos from '../imports/components/partidos.js';
 
 Meteor.startup(() => {
 	$('html').attr('lang','es'); 
-
+    Meteor.subscribe('equipos');
 	render(
 	<HashRouter>
 		<div>

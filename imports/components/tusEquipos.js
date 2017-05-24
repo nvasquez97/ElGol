@@ -1,10 +1,14 @@
 'use strict';
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { createContainer } from 'meteor/react-meteor-data';
 import TusJugadores from './tusJugadores.js';
 import Equipo from './equipo.js';
+import { Usuarios } from '../api/usuarios.js';
+import { Equipos } from '../api/equipos.js';
 
-export default class TusEquipos extends Component {
+class TusEquipos extends Component {
 
 	constructor(props)
 	{
@@ -12,12 +16,34 @@ export default class TusEquipos extends Component {
 		this.state = {
 			login:true,
 			partidos:false,
+			misEquipos:[],
+			equipos:[],
 		}
 	}
 
 	irAPartidos()
 	{
 		this.setState({partidos:true});
+	}
+
+	cargarMisEquipos()
+	{
+
+	}
+
+	cargarEquipos()
+	{
+		var equipos = Equipos.find({}).fetch();
+		console.log(equipos);
+		equipos.map(equipo=>{
+			if(equipo.url_escudo)
+			{
+				var nuevEquipos = this.state.misEquipos.push(equipo);
+				this.setState({
+					misEquipos:nuevEquipos,
+				})
+			}
+		});
 	}
 
 	logOut()
@@ -35,7 +61,18 @@ export default class TusEquipos extends Component {
 			});
 	}
 
+	componentDidMount()
+	{
+		Meteor.subscribe('equipos');
+		Meteor.subscribe('usuarios');
+	}
+
 	render() {
+		Meteor.subscribe('equipos');
+		if(this.state.misEquipos.length<1)
+		{
+			this.cargarEquipos();
+		}
 		if(Meteor.userId())
 		{
 			if(this.state.partidos)
@@ -52,19 +89,14 @@ export default class TusEquipos extends Component {
 					</div>
 					<hr></hr>
 					<div className="row">
-						<Equipo />
-					</div>
-					<div className="dropdown">
-						<button className="dropbtn">Dropdown</button>
-						<div className="dropdown-content">
-							<a href="#">Link 1</a>
-							<a href="#">Link 2</a>
-							<a href="#">Link 3</a>
-						</div>
-						<div className="botones">
-							<button className="btn btn-success"> Añadir equipos </button>
-							<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
-						</div>
+						{this.state.misEquipos.map(equipo=>{
+							return <Equipo key={equipo._id} equipo={equipo}/>
+							})
+						}
+					</div>					
+					<div className="botones">
+						<button className="btn btn-success"> Añadir equipos </button>
+						<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
 					</div>
 					<hr></hr>
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
@@ -84,3 +116,11 @@ export default class TusEquipos extends Component {
 		}
 	}
 }
+
+export default createContainer(()=>{
+	Meteor.subscribe('equipos');
+	console.log(Equipos.find({}).fetch());
+	return{
+		equipos:Equipos.find({}).fetch(),
+	}
+}, TusEquipos);

@@ -10,9 +10,9 @@ export default class Equipos extends Component{
 	{
 		return(
 			<div className="col-md-3 container equipo">
-				<h5 className="tEquipo"> Millos</h5>
+				<h5 className="tEquipo"> {this.props.equipo.nombre}</h5>
 				<div className="centerImg">
-					<img className="img-responsive imgEquipo" src="img/eMillos.png" alt="foto equipo"/>
+					<img className="img-responsive imgEquipo" src={this.props.equipo.url_escudo} alt="foto equipo"/>
 				</div>
 			</div>
 			);
