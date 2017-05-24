@@ -23,10 +23,17 @@ if(Meteor.isServer)
 		'user.addTeam'(name, id){
 			let user = Usuarios.find({ "_id":id }).fetch()[0];
 			if(user.equipos){
+				if(user.equipos.includes(name))
+				{
+
+				}
+				else
+				{
 				user.equipos.push(name);
 				let nEquipos = user.equipos;
 				user.equipos = nEquipos;
-				Usuarios.update({ "_id":this.userId }, user);
+				Usuarios.update({ "_id":this.userId }, user);	
+				}
 			}
 			else
 			{

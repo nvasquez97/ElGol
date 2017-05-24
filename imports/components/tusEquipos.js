@@ -66,7 +66,6 @@ class TusEquipos extends Component {
 			var equipos = Equipos.find({}).fetch();
 			var nuevEquipos = [];
 			equipos.map(equipo=>{
-				console.log(this.includesMis(equipo));
 			if(equipo.url_escudo && !this.includesMis(equipo))
 			{	
 				
@@ -132,6 +131,7 @@ class TusEquipos extends Component {
 					</div>
 					<hr></hr>
 					<div className="row">
+						{this.state.misEquipos.length >1 ? <h5> Mira tus equipos: </h5> : <h5> No tienes equipos, añade tu favorito </h5>}
 						{this.state.misEquipos.map(equipo=>{
 							return <Equipo key={equipo._id} equipo={equipo} cambiar={this.cambiarTengoEquipos.bind(this)}/>
 							})
