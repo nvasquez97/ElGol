@@ -17,7 +17,7 @@ class TusEquipos extends Component {
 			login:true,
 			partidos:false,
 			misEquipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
-			equipos:[],
+			equipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
 			anadir:false,
 		}
 	}
@@ -38,13 +38,15 @@ class TusEquipos extends Component {
 		this.setState({
 			anadir:nuev,
 		});
-		if(this.state.equipos.length<1)
+		if(this.state.equipos.length<2)
 		{
 			var equipos = Equipos.find({}).fetch();
 			equipos.map(equipo=>{
 			if(equipo.url_escudo)
-			{
-				var nuevEquipos = this.state.equipos.push(equipo);
+			{	
+				console.log(this.state.equipos);
+				var nuevEquipos = this.state.equipos;
+				nuevEquipos.push(equipo);
 				this.setState({
 					equipos:nuevEquipos,
 				});
