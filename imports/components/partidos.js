@@ -9,6 +9,7 @@ export default class Partidos extends Component{
 		super(props);
 		this.state={
 			tusequipos:false,
+			partidos:[{_id:1,nombreEquipo1:'Millonarios', nombreEquipo2:'Patriotas', goles1:2, goles2:0}],
 		}
 	}
 
@@ -47,7 +48,10 @@ export default class Partidos extends Component{
 					<h1 className="tituloTemp"> Partidos </h1>
 					<hr></hr>
 					<div className="row">
-						<Partido/>
+						{this.state.partidos.map(partido=>{
+							return <Partido key={partido._id} partido={partido}/>
+							})
+						}
 					</div>
 					<button className="btn btn-primary" onClick={this.equipos.bind(this)}> Ve a Tus Equipos</button>
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>

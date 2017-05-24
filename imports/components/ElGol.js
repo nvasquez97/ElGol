@@ -53,8 +53,6 @@ export default class UserForm extends Component{
 		else
 		{
 			let pass = document.getElementById('passL').value;
-			console.log(pass);
-			console.log(this.state.user);
 			if(pass ==="" || this.state.user ==="")
 			{
 
