@@ -19,13 +19,14 @@ export default class Videos extends Component{
 	}
 	searchVideos()
 	{
-		Youtube({key:API_K, term:'millonarios', channelId:'UCZjpA3YBPXvJv3pg4SPEjfw'}, (videos)=>
+		Youtube({key:API_K, term:this.props.partido.nombreEquipo1+" " + this.props.partido.goles1 + " " + this.props.partido.nombreEquipo2 + " " + this.props.partido.goles2, channelId:'UCZjpA3YBPXvJv3pg4SPEjfw'}, (videos)=>
 		{	
 			this.setState({
 				goles:videos,
 			});	
+			console.log(this.props.partido.nombreEquipo1);
 		});
-		Youtube({key:API_K, term:'millonarios'}, (videos)=>
+		Youtube({key:API_K, term:this.props.partido.nombreEquipo1}, (videos)=>
 		{
 			this.setState({
 				highlights:videos,
