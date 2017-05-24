@@ -1,3 +1,11 @@
+body{
+	background: url("img/ElGol.jpeg") no-repeat top center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
 .elGolT{
 	color:rgba(20,20,250,0.7);
 	font-size: 180px;
@@ -31,12 +39,7 @@ label{
 	font-family:'Ubuntu';
 }
 .fondoApp{
-    background: url("img/ElGol.jpeg") no-repeat top center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+ 
 }
 span{
 	font-family:'Kreon';
@@ -71,6 +74,9 @@ span{
 	display: inline-block;
 	width:100%;
 }
+.gris{
+	background-color: rgba(256, 256, 256,0.7);
+}
 .gris:hover{
 	background-color: rgba(20, 20, 250,0.1);
 }
@@ -84,6 +90,7 @@ span{
 }
 .tEquipo{
 	text-align: center;
+	font-size: 20px;
 }
 .imgEquipo{
 	max-width: 100px;
