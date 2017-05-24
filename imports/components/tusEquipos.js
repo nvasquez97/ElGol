@@ -44,10 +44,10 @@ class TusEquipos extends Component {
 			equipos.map(equipo=>{
 			if(equipo.url_escudo)
 			{
-				var nuevEquipos = this.state.misEquipos.push(equipo);
+				var nuevEquipos = this.state.equipos.push(equipo);
 				this.setState({
 					equipos:nuevEquipos,
-				})
+				});
 			}
 			});	
 		}
@@ -100,12 +100,12 @@ class TusEquipos extends Component {
 						<button className="btn btn-success" onClick={this.cargarEquipos.bind(this)}> Añadir equipos </button>
 						<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
 					</div>
+					<hr></hr>
 					{this.state.anadir ? this.state.equipos.map(equipo=>{
-							return <Equipo key={equipo._id} equipo={equipo} anadir={this.state.anadir}/>
+							return <Equipo key={equipo._id} equipo={equipo} anadir={true}/>
 							})
 							: <span></span>
 					}
-					<hr></hr>
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
 				</div>
 				<div className="col-md-4">
@@ -127,7 +127,7 @@ class TusEquipos extends Component {
 export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
-	
+
 	return{
 		equipos:Equipos.find({}).fetch(),
 	}

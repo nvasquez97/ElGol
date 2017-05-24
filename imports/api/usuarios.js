@@ -27,6 +27,12 @@ if(Meteor.isServer)
 				user.equipos = nEquipos;
 				Usuarios.update({ "_id":this.userId }, user);
 			}
+			else
+			{
+				let nEquipos = [].push(name);
+				user.equipos = nEquipos;
+				Usuarios.update({ "_id":this.userId }, user);
+			}
 		}
 	});
 }
