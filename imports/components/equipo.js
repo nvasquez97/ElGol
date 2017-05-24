@@ -6,6 +6,14 @@ export default class Equipos extends Component{
 	{
 		super(props);
 	}
+	anadirEquipo(){
+
+	}
+
+	eliminarEquipo(){
+		
+	}
+
 	render()
 	{
 		return(

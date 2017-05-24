@@ -67,7 +67,7 @@ export default class Videos extends Component{
 					</div>
 					<div className="row">
 						<h4> Highlights</h4>
-						<Video high={this.state.highlights} />
+						<Video high={this.state.highlights} changeVideo={this.changeVideo.bind(this)}/>
 						<hr></hr>
 					</div>
 				</div>

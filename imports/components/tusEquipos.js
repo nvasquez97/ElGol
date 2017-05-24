@@ -17,7 +17,7 @@ class TusEquipos extends Component {
 			login:true,
 			partidos:false,
 			misEquipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
-			equipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
+			equipos:[],
 			anadir:false,
 		}
 	}
@@ -127,6 +127,7 @@ class TusEquipos extends Component {
 export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
+	
 	return{
 		equipos:Equipos.find({}).fetch(),
 	}
