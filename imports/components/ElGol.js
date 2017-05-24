@@ -53,6 +53,8 @@ export default class UserForm extends Component{
 		else
 		{
 			let pass = document.getElementById('passL').value;
+			console.log(pass);
+			console.log(this.state.user);
 			if(pass ==="" || this.state.user ==="")
 			{
 
@@ -62,6 +64,7 @@ export default class UserForm extends Component{
 				Meteor.loginWithPassword(this.state.user, pass, (error)=>{
 					if(error)
 					{
+						console.log(error);
 
 					}
 					else

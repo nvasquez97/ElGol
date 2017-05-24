@@ -15,6 +15,7 @@ export default class Videos extends Component{
 			highlights:[],
 			videoId:"NoWqnjmh8KU",
 		}
+		this.changeVideo= this.changeVideo.bind(this);
 	}
 	searchVideos()
 	{
@@ -32,6 +33,15 @@ export default class Videos extends Component{
 		});
 		
 	}
+	changeVideo(idVideo){
+		this.state.videoId=idVideo;
+		console.log(this.state.videoId);
+	}
+
+	getURL(){
+		let url="https://www.youtube.com/embed/"+this.state.videoId+"?autoplay=1";
+		return url;
+	}
 
 	render()
 	{
@@ -45,13 +55,13 @@ export default class Videos extends Component{
 			return(
 			<div className="container">
 				<div  className="embed-responsive embed-responsive-16by9">
-            		<iframe className="embed-responsive-item" src="https://www.youtube.com/embed/NoWqnjmh8KU?autoplay=1" ></iframe>
+            		<iframe className="embed-responsive-item" src={this.getURL()} ></iframe>
           		</div>
           		<hr></hr>
 				<div className="videos">
 					<div className="row">
 						<h4> Goles</h4>
-						<Video goles={this.state.goles} />
+						<Video goles={this.state.goles} changeVideo= {this.changeVideo.bind(this)}/>
 						<hr></hr>
 					</div>
 					<div className="row">
