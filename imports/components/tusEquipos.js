@@ -105,11 +105,6 @@ class TusEquipos extends Component {
 			});
 	}
 
-	componentDidMount()
-	{
-		Meteor.subscribe('equipos');
-		Meteor.subscribe('usuarios');
-	}
 	componentWillMount()
 	{
 		this.cargarMisEquipos();

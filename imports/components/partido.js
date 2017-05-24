@@ -28,10 +28,10 @@ export default class Partido extends Component {
 					<hr></hr>
 					<div className="partido">
 						<div className="partidoI">
-							<h5> {this.props.partido.nombreEquipo1} &emsp;<span>{this.props.partido.goles1}</span></h5>
+							<h5> {this.props.partido.local} &emsp;<span>{this.props.partido.goleslocal}</span></h5>
 						</div>
 						<div className="partidoD">
-							<h5> &emsp; <span>{this.props.partido.goles2}</span>&emsp;	{this.props.partido.nombreEquipo2}</h5>
+							<h5> &emsp; <span>{this.props.partido.golesvisitor}</span>&emsp;	{this.props.partido.visitor}</h5>
 						</div>
 					</div>
 					<hr></hr>

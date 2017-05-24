@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import { createContainer } from 'meteor/react-meteor-data';
 import { Redirect } from 'react-router-dom';
 import Partido from './partido.js';
+import { Usuarios } from '../api/usuarios.js';
+import { PartidosM } from '../api/partidos.js';
 
-export default class Partidos extends Component{
+class Partidos extends Component{
 	constructor(props)
 	{
 		super(props);
@@ -31,7 +34,41 @@ export default class Partidos extends Component{
 				}
 			});
 	}
+	componentWillMount()
+	{
+		this.cargarPartidos();
+	}
 
+	cargarPartidos()
+	{
+		let parts = PartidosM.find({}).fetch();
+		let user = Usuarios.find({"_id":Meteor.userId()}).fetch();
+		let misParts = [];
+		console.log(user);
+		console.log(parts);
+		if(user.length>0 && parts.length>0)
+		{
+			if(user[0].equipos)
+			{
+				user[0].equipos.map(equipo=>{
+					parts.map(partido=>{
+						if(partido.local || partido.visitor)
+						{
+							if(equipo === partido.local || equipo === partido.visitor)
+							{
+								misParts.push(partido);
+							}
+						}
+					});
+				});
+				console.log(misParts);
+			}
+			this.setState({
+				partidos:misParts,
+			});
+			console.log(misParts);
+		}
+	}
 
 	render()
 	{
@@ -48,6 +85,11 @@ export default class Partidos extends Component{
 					<h1 className="tituloTemp"> Partidos </h1>
 					<hr></hr>
 					<div className="row">
+						{this.state.partidos.length > 1 ? 
+							<h5> No tienes partidos, ve a agregar tus equipos favoritos </h5>
+							:
+							<span> </span>
+						}
 						{this.state.partidos.map(partido=>{
 							return <Partido key={partido._id} partido={partido}/>
 							})
@@ -63,3 +105,12 @@ export default class Partidos extends Component{
 		}
 	}
 }
+
+export default createContainer(()=>{
+	Meteor.subscribe('equipos');
+	Meteor.subscribe('usuarios');
+	Meteor.subscribe('partidos');
+	return{
+		mUsuario:Usuarios.find({}).fetch(),
+	}
+}, Partidos);

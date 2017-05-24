@@ -1,11 +1,18 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 
-export const Partidos = new Mongo.Collection('partidos');
+export const PartidosM = new Mongo.Collection('partidos');
 
 if(Meteor.isServer)
 {
 	Meteor.publish('partidos', function getPartidos(){
-		return Partidos.find({});
+		if(this.userId!== null)
+		{
+			return PartidosM.find({});
+		}
+		else
+		{
+			return [];
+		}
 	});
 }
