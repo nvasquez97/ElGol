@@ -8,7 +8,7 @@ if(Meteor.isServer)
 	Meteor.publish('usuarios', function getPartidos(){
 		if(this.userId!==null)
 		{
-			return Usuarios.find({"_id":this.userId});	
+			return Usuarios.find();	
 		}
 		else
 		{
@@ -20,16 +20,18 @@ if(Meteor.isServer)
 		'user.insertName'(name, id){
 			Usuarios.insert({"_id":id, nombre:name});
 		},
-		'user.addTeam'(name){
-			let user = Usuarios.find({ "_id":this.userId }).fetch()[0];
+		'user.addTeam'(name, id){
+			let user = Usuarios.find({ "_id":id }).fetch()[0];
 			if(user.equipos){
-				let nEquipos = user.equipos.push(name);
+				user.equipos.push(name);
+				let nEquipos = user.equipos;
 				user.equipos = nEquipos;
 				Usuarios.update({ "_id":this.userId }, user);
 			}
 			else
 			{
-				let nEquipos = [].push(name);
+				let nEquipos = [];
+				nEquipos.push(name);
 				user.equipos = nEquipos;
 				Usuarios.update({ "_id":this.userId }, user);
 			}

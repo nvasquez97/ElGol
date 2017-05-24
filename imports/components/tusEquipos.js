@@ -16,9 +16,10 @@ class TusEquipos extends Component {
 		this.state = {
 			login:true,
 			partidos:false,
-			misEquipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
-			equipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
+			misEquipos:[],
+			equipos:[],
 			anadir:false,
+			tengoEquipos:false,
 		}
 	}
 
@@ -29,7 +30,28 @@ class TusEquipos extends Component {
 
 	cargarMisEquipos()
 	{
-
+		let nombres = Usuarios.find({"_id":Meteor.userId()}).fetch();
+		let eq = nombres[0];
+		if(nombres.length>0)
+		{
+		console.log(nombres);
+		console.log(eq);
+		if(eq.equipos)
+		{
+			let nom = eq.equipos;
+			let equipo = [];
+			nom.map(name=>{
+			let nueq = Equipos.find({"Nombre":name}).fetch()[0];
+			if(nueq!== undefined)
+			equipo.push(nueq);
+			});
+			console.log(equipo); 	
+			this.setState({
+				misEquipos:equipo,
+				tengoEquipos:true,
+			});				
+		}
+		}
 	}
 
 	cargarEquipos()
@@ -38,13 +60,12 @@ class TusEquipos extends Component {
 		this.setState({
 			anadir:nuev,
 		});
-		if(this.state.equipos.length<2)
+		if(this.state.equipos.length<1)
 		{
 			var equipos = Equipos.find({}).fetch();
 			equipos.map(equipo=>{
-			if(equipo.url_escudo)
+			if(equipo.url_escudo && !this.state.misEquipos.includes(equipo))
 			{	
-				console.log(this.state.equipos);
 				var nuevEquipos = this.state.equipos;
 				nuevEquipos.push(equipo);
 				this.setState({
@@ -77,6 +98,10 @@ class TusEquipos extends Component {
 	}
 
 	render() {
+		if(!this.state.tengoEquipos)
+		{
+			this.cargarMisEquipos();
+		}
 		if(Meteor.userId())
 		{
 			if(this.state.partidos)
@@ -129,8 +154,8 @@ class TusEquipos extends Component {
 export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
-
+	
 	return{
-		equipos:Equipos.find({}).fetch(),
+		mequipos:Equipos.find({}).fetch(),
 	}
 }, TusEquipos);
