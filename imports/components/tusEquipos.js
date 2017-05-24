@@ -66,28 +66,29 @@ class TusEquipos extends Component {
 			var equipos = Equipos.find({}).fetch();
 			var nuevEquipos = [];
 			equipos.map(equipo=>{
-				console.log(!this.includesMis(equipo));
+				console.log(this.includesMis(equipo));
 			if(equipo.url_escudo && !this.includesMis(equipo))
 			{	
 				
 				nuevEquipos.push(equipo);
-				this.setState({
-					equipos:nuevEquipos,
-				});
 			}
 			});	
+			this.setState({
+				equipos:nuevEquipos,
+			});
 	}
 
 	includesMis(equipo)
 	{
+		let include = 0;
 		this.state.misEquipos.map(eq=>{
 			if(eq.Nombre === equipo.Nombre)
 			{
-				return true;
+				include++;
 			}
 		});
 
-		return false;
+		return include>0;
 	}
 
 	logOut()
@@ -110,12 +111,11 @@ class TusEquipos extends Component {
 		Meteor.subscribe('equipos');
 		Meteor.subscribe('usuarios');
 	}
-
+	componentWillMount()
+	{
+		this.cargarMisEquipos();
+	}
 	render() {
-		if(!this.state.tengoEquipos)
-		{
-			this.cargarMisEquipos();
-		}
 		if(Meteor.userId())
 		{
 			if(this.state.partidos)
@@ -133,7 +133,7 @@ class TusEquipos extends Component {
 					<hr></hr>
 					<div className="row">
 						{this.state.misEquipos.map(equipo=>{
-							return <Equipo key={equipo._id} equipo={equipo}/>
+							return <Equipo key={equipo._id} equipo={equipo} cambiar={this.cambiarTengoEquipos.bind(this)}/>
 							})
 						}
 					</div>					

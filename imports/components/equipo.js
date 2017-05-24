@@ -12,7 +12,8 @@ export default class Equipos extends Component{
 	}
 
 	eliminarEquipo(){
-
+		Meteor.call('user.DeleteTeam',this.props.equipo.Nombre, Meteor.userId());
+		this.props.cambiar();
 	}
 
 	render()
