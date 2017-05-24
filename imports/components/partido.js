@@ -28,16 +28,16 @@ export default class Partido extends Component {
 					<hr></hr>
 					<div className="partido">
 						<div className="partidoI">
-							<h5> Millonarios &emsp;<span>2</span></h5>
+							<h5> {this.props.partido.nombreEquipo1} &emsp;<span>{this.props.partido.goles1}</span></h5>
 						</div>
 						<div className="partidoD">
-							<h5> &emsp; <span>0</span>&emsp;	Patriotas</h5>
+							<h5> &emsp; <span>{this.props.partido.goles2}</span>&emsp;	{this.props.partido.nombreEquipo2}</h5>
 						</div>
 					</div>
 					<hr></hr>
 				</div>
 				{this.state.video?
-					<Videos />
+					<Videos partido={this.props.partido}/>
 					:
 					<span></span>
 				}
