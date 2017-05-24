@@ -39,19 +39,25 @@ class Partidos extends Component{
 		this.cargarPartidos();
 	}
 
+	componentDidMount()
+	{
+		Meteor.subscribe('equipos');
+	Meteor.subscribe('usuarios');
+	Meteor.subscribe('partidos');
+	}
+
 	cargarPartidos()
 	{
-		let parts = PartidosM.find({}).fetch();
+		console.log(this.props.mPartidos);
+		let parts=this.props.mPartidos;
 		let user = Usuarios.find({"_id":Meteor.userId()}).fetch();
 		let misParts = [];
-		console.log(user);
-		console.log(parts);
-		if(user.length>0 && parts.length>0)
+		if(user.length>0 )
 		{
 			if(user[0].equipos)
 			{
 				user[0].equipos.map(equipo=>{
-					parts.map(partido=>{
+					this.props.mPartidos.map(partido=>{
 						if(partido.local || partido.visitor)
 						{
 							if(equipo === partido.local || equipo === partido.visitor)
@@ -61,12 +67,10 @@ class Partidos extends Component{
 						}
 					});
 				});
-				console.log(misParts);
 			}
 			this.setState({
 				partidos:misParts,
 			});
-			console.log(misParts);
 		}
 	}
 
@@ -110,7 +114,9 @@ export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
 	Meteor.subscribe('partidos');
+	console.log(PartidosM.find({}).fetch());
 	return{
 		mUsuario:Usuarios.find({}).fetch(),
+		mPartidos:PartidosM.find({}).fetch(),
 	}
 }, Partidos);
