@@ -83,7 +83,7 @@ class TusEquipos extends Component {
 		this.state.misEquipos.map(eq=>{
 			if(eq.Nombre === equipo.Nombre)
 			{
-				return true
+				return true;
 			}
 		});
 
