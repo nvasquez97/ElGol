@@ -16,8 +16,9 @@ class TusEquipos extends Component {
 		this.state = {
 			login:true,
 			partidos:false,
-			misEquipos:[],
+			misEquipos:[{_id:1, url_escudo:"img/eMillos.png", Nombre:"Mi unico equipo"}],
 			equipos:[],
+			anadir:false,
 		}
 	}
 
@@ -33,14 +34,16 @@ class TusEquipos extends Component {
 
 	cargarEquipos()
 	{
+		this.setState({
+			anadir:true,
+		});
 		var equipos = Equipos.find({}).fetch();
-		console.log(equipos);
 		equipos.map(equipo=>{
 			if(equipo.url_escudo)
 			{
 				var nuevEquipos = this.state.misEquipos.push(equipo);
 				this.setState({
-					misEquipos:nuevEquipos,
+					equipos:nuevEquipos,
 				})
 			}
 		});
@@ -68,11 +71,6 @@ class TusEquipos extends Component {
 	}
 
 	render() {
-		Meteor.subscribe('equipos');
-		if(this.state.misEquipos.length<1)
-		{
-			this.cargarEquipos();
-		}
 		if(Meteor.userId())
 		{
 			if(this.state.partidos)
@@ -95,9 +93,14 @@ class TusEquipos extends Component {
 						}
 					</div>					
 					<div className="botones">
-						<button className="btn btn-success"> Añadir equipos </button>
+						<button className="btn btn-success" onClick={this.cargarEquipos.bind(this)}> Añadir equipos </button>
 						<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
 					</div>
+					{this.state.anadir? this.state.equipos.map(equipo=>{
+							return <Equipo key={equipo._id} equipo={equipo} anadir={this.state.anadir}/>
+							})
+							: <span></span>
+					}
 					<hr></hr>
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
 				</div>
@@ -119,7 +122,7 @@ class TusEquipos extends Component {
 
 export default createContainer(()=>{
 	Meteor.subscribe('equipos');
-	console.log(Equipos.find({}).fetch());
+	Meteor.subscribe('usuarios');
 	return{
 		equipos:Equipos.find({}).fetch(),
 	}
