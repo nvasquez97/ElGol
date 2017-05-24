@@ -35,6 +35,21 @@ if(Meteor.isServer)
 				user.equipos = nEquipos;
 				Usuarios.update({ "_id":this.userId }, user);
 			}
+		},
+		'user.DeleteTeam'(name, id){
+			let user = Usuarios.find({ "_id":id }).fetch()[0];
+			if(user.equipos)
+			{
+				let nEquipos =[];
+				user.equipos.map(equip=>{
+					if(equip!==name)
+					{
+						nEquipos.push(equip);
+					}
+				});
+				user.equipos = nEquipos;
+				Usuarios.update({ "_id":this.userId }, user);
+			}
 		}
 	});
 }

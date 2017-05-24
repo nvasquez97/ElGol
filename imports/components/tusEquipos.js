@@ -34,8 +34,6 @@ class TusEquipos extends Component {
 		let eq = nombres[0];
 		if(nombres.length>0)
 		{
-		console.log(nombres);
-		console.log(eq);
 		if(eq.equipos)
 		{
 			let nom = eq.equipos;
@@ -45,7 +43,6 @@ class TusEquipos extends Component {
 			if(nueq!== undefined)
 			equipo.push(nueq);
 			});
-			console.log(equipo); 	
 			this.setState({
 				misEquipos:equipo,
 				tengoEquipos:true,
@@ -53,27 +50,44 @@ class TusEquipos extends Component {
 		}
 		}
 	}
-
+	cambiarTengoEquipos()
+	{
+		this.setState({
+			tengoEquipos:false,
+		});
+		this.cargarEquipos();
+	}
 	cargarEquipos()
 	{
 		let nuev = !this.state.anadir;
 		this.setState({
 			anadir:nuev,
 		});
-		if(this.state.equipos.length<1)
-		{
 			var equipos = Equipos.find({}).fetch();
+			var nuevEquipos = [];
 			equipos.map(equipo=>{
-			if(equipo.url_escudo && !this.state.misEquipos.includes(equipo))
+				console.log(!this.includesMis(equipo));
+			if(equipo.url_escudo && !this.includesMis(equipo))
 			{	
-				var nuevEquipos = this.state.equipos;
+				
 				nuevEquipos.push(equipo);
 				this.setState({
 					equipos:nuevEquipos,
 				});
 			}
 			});	
-		}
+	}
+
+	includesMis(equipo)
+	{
+		this.state.misEquipos.map(eq=>{
+			if(eq.Nombre === equipo.Nombre)
+			{
+				return true
+			}
+		});
+
+		return false;
 	}
 
 	logOut()
@@ -129,7 +143,7 @@ class TusEquipos extends Component {
 					</div>
 					<hr></hr>
 					{this.state.anadir ? this.state.equipos.map(equipo=>{
-							return <Equipo key={equipo._id} equipo={equipo} anadir={true}/>
+							return <Equipo key={equipo._id} equipo={equipo} anadir={true} cambiar={this.cambiarTengoEquipos.bind(this)}/>
 							})
 							: <span></span>
 					}

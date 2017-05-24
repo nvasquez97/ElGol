@@ -8,6 +8,7 @@ export default class Equipos extends Component{
 	}
 	anadirEquipo(){
 		Meteor.call('user.addTeam',this.props.equipo.Nombre, Meteor.userId());
+		this.props.cambiar();
 	}
 
 	eliminarEquipo(){
