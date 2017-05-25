@@ -50,12 +50,14 @@ class Partidos extends Component{
 	{
 		let parts=this.props.mPartidos;
 		let user = this.props.mUsuario;
+		console.log(this.props.mPartidos);
+		console.log(this.props.mUsuario);
 		let misParts = [];
-		if(user.length>0 )
+		if(this.props.mUsuario.length>0 )
 		{
 			if(user[0].equipos)
 			{
-				user[0].equipos.map(equipo=>{
+				this.props.mUsuario[0].equipos.map(equipo=>{
 					this.props.mPartidos.map(partido=>{
 						if(partido.local || partido.visitor)
 						{
@@ -70,6 +72,7 @@ class Partidos extends Component{
 			this.setState({
 				partidos:misParts,
 			});
+			console.log(this.state.partidos);
 		}
 	}
 
