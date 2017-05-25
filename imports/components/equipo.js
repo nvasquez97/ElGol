@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Usuarios } from '../api/usuarios.js';
+import '../style.css';
 export default class Equipos extends Component{
 
 	constructor(props)
@@ -23,7 +24,7 @@ export default class Equipos extends Component{
 				<h5 className="tEquipo"> {this.props.equipo.Nombre}</h5>
 				<div className="centerImg">
 					<img className="img-responsive imgEquipo" src={this.props.equipo.url_escudo} title={this.props.equipo.Nombre} alt="foto equipo"/>
-					{this.props.anadir? <button className="btn btn-success" onClick={this.anadirEquipo.bind(this)}> Añadir </button> : <button className="btn btn-default" onClick={this.eliminarEquipo.bind(this)}> Eliminar </button>}
+					{this.props.anadir? <button className="btn btn-success" onClick={this.anadirEquipo.bind(this)}> <i className="fa fa-thumbs-o-up fa-lg"></i></button> : <button className="btn btn-default" onClick={this.eliminarEquipo.bind(this)}> <i className="fa fa-trash fa-2x"></i> </button>}
 				</div>
 				
 			</div>
