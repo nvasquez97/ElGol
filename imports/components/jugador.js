@@ -19,8 +19,8 @@ export default class Jugador extends Component{
 	render()
 	{
 		return(
-			<div>
-			 <h5 className="tEquipo"> {this.props.equipo.nombre}</h5>
+			<div className="gris jugador">
+			 <h5> {this.props.jugador.nombre}</h5>
 			 </div>	
 			);
 	}
