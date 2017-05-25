@@ -69,6 +69,7 @@ class Partidos extends Component{
 					});
 				});
 			}
+			console.log(misParts);
 			this.setState({
 				partidos:misParts,
 			});
