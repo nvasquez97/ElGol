@@ -20,7 +20,7 @@ export default class Jugador extends Component{
 	{
 		return(
 			<div>
-			 <h5 className="tEquipo"> {this.props.equipo.Nombre}</h5>
+			 <h5 className="tEquipo"> {this.props.equipo.nombre}</h5>
 			 </div>	
 			);
 	}
