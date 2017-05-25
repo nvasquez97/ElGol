@@ -30,6 +30,10 @@ class TusJugadores extends Component {
 					return <Jugador key={jugador._id} jugador={jugador} anadir={this.anadir.bind(this)}/>
 				})}
 				<button className="btn btn-success" onClick={this.anadir.bind(this)}> Añadir Jugador </button>
+				{this.state.anadir? this.props.jugadores.map(jugador=>{
+					return <Jugador key={jugador._id} jugador={jugador} anadir={this.anadir.bind(this)}/>
+				}):<span></span>
+				}
 			</div>
 			);
 	}
@@ -51,6 +55,7 @@ class TusJugadores extends Component {
 		let jugadores =[];
 		if(users.length>0 && players.length>0)
 		{
+			console.log('aca');
 			if(users[0].jugadores)
 			{
 				players.map(play=>{
