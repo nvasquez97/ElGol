@@ -91,7 +91,6 @@ export default createContainer(()=>{
 		let misParts = [];
 		if(parts.length>0 && user.length>0)
 		{
-			console.log('aca');
 			if(user[0].equipos)
 			{
 				user[0].equipos.map(equipo=>{
@@ -109,7 +108,6 @@ export default createContainer(()=>{
 			misParts.sort(function(may, men){
 				return men.round - may.round;
 			});
-			console.log(misParts);
 		}
 
 	return{

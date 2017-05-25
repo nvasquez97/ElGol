@@ -1,15 +1,82 @@
 import React, { Component } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
+import { Jugadores } from '../api/jugadores.js';
+import { Usuarios } from '../api/usuarios.js';
+import Jugador from './jugador.js';
+class TusJugadores extends Component {
+	constructor(props)
+	{
+		super(props);
+		this.state ={
+			anadir:false,
+		}
+	}
 
-export default class TusJugadores extends Component {
-
-
+	anadir()
+	{
+		let nuevAnadir = !this.state.anadir;
+		this.setState({
+			anadir:nuevAnadir,
+		});
+	}
 	render()
 	{
 		return(
 			<div className="container">
 				<h1 className="titJugadores tituloTemp">Jugadores</h1>
 				<hr></hr>
+				{this.props.mJugadores.length<1? <h5> No tienes jugadores, añade uno </h5> : <span></span>}
+				{this.props.mJugadores.map(jugador=>{
+					return <Jugador key={jugador._id} jugador={jugador} anadir={this.anadir.bind(this)}/>
+				})}
+				<button className="btn btn-success" onClick={this.anadir.bind(this)}> Añadir Jugador </button>
 			</div>
 			);
 	}
+
+	componentDidMount()
+	{
+		Meteor.subscribe('usuarios');
+		Meteor.subscribe('jugadores');
+	}
 }
+	export default createContainer(()=>{
+		Meteor.subscribe('usuarios');
+		Meteor.subscribe('jugadores');
+		
+		let users = Usuarios.find({"_id":Meteor.userId()}).fetch();
+		let players = Jugadores.find({}).fetch();
+
+		let misJugadores =[];
+		let jugadores =[];
+		if(users.length>0 && players.length>0)
+		{
+			if(users[0].jugadores)
+			{
+				players.map(play=>{
+					users[0].jugadores.map(jugador=>{
+						if(play.nombre===jugador)
+						{
+							misJugadores.push(play);	
+						}
+						else
+						{
+							jugadores.push(play);
+						}
+					});
+				});
+				
+				
+			}
+			else
+			{
+				jugadores = players;
+			}
+		}
+	return{
+		mJugadores:misJugadores,
+		jugadores:jugadores,
+	}
+
+
+},TusJugadores);

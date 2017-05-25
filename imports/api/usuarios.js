@@ -57,6 +57,42 @@ if(Meteor.isServer)
 				user.equipos = nEquipos;
 				Usuarios.update({ "_id":this.userId }, user);
 			}
+		},
+		'user.addPlayer'(name, id){
+			let user = Usuarios.find({ "_id":id }).fetch()[0];
+			if(user.equipos){
+				if(user.jugadores.includes(name))
+				{
+
+				}
+				else
+				{
+				user.jugadores.push(name);
+				Usuarios.update({ "_id":this.userId }, user);	
+				}
+			}
+			else
+			{
+				let nEquipos = [];
+				nEquipos.push(name);
+				user.jugadores = nEquipos;
+				Usuarios.update({ "_id":this.userId }, user);
+			}
+		},
+		'user.DeletePlayer'(name, id){
+			let user = Usuarios.find({ "_id":id }).fetch()[0];
+			if(user.jugadores)
+			{
+				let nEquipos =[];
+				user.jugadores.map(equip=>{
+					if(equip!==name)
+					{
+						nEquipos.push(equip);
+					}
+				});
+				user.jugadres = nEquipos;
+				Usuarios.update({ "_id":this.userId }, user);
+			}
 		}
 	});
 }
