@@ -24,6 +24,12 @@ export default class UserForm extends Component{
 			{
                   sAlert.success('Debes completar todos los campos para registrarte', {timeout: 20000, position:'top', effect:'jelly'});
 			}
+			else if(pass.length<=8){
+				sAlert.success('Tu contraseña debe tener más de 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+			}
+			else if(this.state.user.length<=8){
+				sAlert.success('Tu usuario debe tener más de 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+			}
 			else{
 				Accounts.createUser({
 					username:this.state.user,
@@ -33,12 +39,16 @@ export default class UserForm extends Component{
 				(error)=>{
 					if(error)
 					{
+						sAlert.success(error.reason, {timeout: 20000, position:'top', effect:'jelly'});
+
 						console.log(error.reason);
 					}
 					else{
 						Meteor.loginWithPassword(this.state.user, pass, (error)=>{
 							if(error)
 							{
+								sAlert.success(error.reason, {timeout: 20000, position:'top', effect:'jelly'});
+
 								console.log(error);
 							}
 							else{
@@ -49,6 +59,7 @@ export default class UserForm extends Component{
 					}
 				});
 			}
+			
 		}
 		else
 		{
@@ -63,6 +74,8 @@ export default class UserForm extends Component{
 				Meteor.loginWithPassword(this.state.user, pass, (error)=>{
 					if(error)
 					{
+						sAlert.success(error.reason, {timeout: 20000, position:'top', effect:'jelly'});
+
 						console.log(error);
 
 					}
