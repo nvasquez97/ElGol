@@ -1,12 +1,12 @@
-{"_id":"15","key":15,"id_equipo1":2,"id_equipo2":17,"goles1":0,"goles2":2, "torneo":"Conmebol Libertadores"}
-{"_id":"16","key":16,"id_equipo1":18,"id_equipo2":2,"goles1":1,"goles2":0, "torneo":"Conmebol Libertadores"}
-{"_id":"17","key":17,"id_equipo1":3,"id_equipo2":20,"goles1":3,"goles2":0, "torneo":"Conmebol Libertadores"}
-{"_id":"18","key":18,"id_equipo1":3,"id_equipo2":19,"goles1":0,"goles2":0, "torneo":"Conmebol Libertadores"}
-{"_id":"28","key":28,"id_equipo1":4,"id_equipo2":30,"goles1":4,"goles2":2, "torneo":"UEFA Champions League"}
-{"_id":"29","key":29,"id_equipo1":30,"id_equipo2":4,"goles1":1,"goles2":2, "torneo":"UEFA Champions League"}
-{"_id":"30","key":30,"id_equipo1":5,"id_equipo2":29,"goles1":6,"goles2":1, "torneo":"UEFA Champions League"}
-{"_id":"31","key":31,"id_equipo1":29,"id_equipo2":5,"goles1":4,"goles2":0, "torneo":"UEFA Champions League"}
-{"_id":"32","key":32,"id_equipo1":5,"id_equipo2":7,"goles1":0,"goles2":0, "torneo":"UEFA Champions League"}
-{"_id":"33","key":33,"id_equipo1":7,"id_equipo2":5,"goles1":3,"goles2":0, "torneo":"UEFA Champions League"}
-{"_id":"34","key":34,"id_equipo1":31,"id_equipo2":6,"goles1":2,"goles2":3, "torneo":"UEFA Champions League"}
-{"_id":"35","key":35,"id_equipo1":6,"id_equipo2":31,"goles1":3,"goles2":1, "torneo":"UEFA Champions League"}
+{"_id":"15","key":15,"local":"Atlético Nacional","visitor":"Botafogo","goleslocal":0,"golesvisitor":2,"round":40,"torneo":"Conmebol Libertadores"}
+{"_id":"16","key":16,"local":"Estudiantes","visitor":"Atlético Nacional","goleslocal":1,"golesvisitor":0,"round":40,"torneo":"Conmebol Libertadores"}
+{"_id":"17","key":17,"local":"Santa Fe","visitor":"Sporting Cristal","goleslocal":3,"golesvisitor":0,"round":40,"torneo":"Conmebol Libertadores"}
+{"_id":"18","key":18,"local":"Santa Fe","visitor":"Santos","goleslocal":0,"golesvisitor":0,"round":40,"torneo":"Conmebol Libertadores"}
+{"_id":"28","key":28,"local":"Real Madrid C. F.","visitor":"F.C. Bayern Munich","goleslocal":4,"golesvisitor":2,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"29","key":29,"local":"F.C. Bayern Munich","visitor":"Real Madrid C. F.","goleslocal":1,"golesvisitor":2,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"30","key":30,"local":"F. C. Barcelona","visitor":"PSG","goleslocal":6,"golesvisitor":1,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"31","key":31,"local":"PSG","visitor":"F. C. Barcelona","goleslocal":4,"golesvisitor":0,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"32","key":32,"local":"F. C. Barcelona","visitor":"Juventus F.C.","goleslocal":0,"golesvisitor":0,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"33","key":33,"local":"Juventus F.C.","visitor":"F. C. Barcelona","goleslocal":3,"golesvisitor":0,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"34","key":34,"local":"Borussia Dortmund","visitor":"AS Monaco","goleslocal":2,"golesvisitor":3,"round":40,"torneo":"UEFA Champions League"}
+{"_id":"35","key":35,"local":"AS Monaco","visitor":"Borussia Dortmund","goleslocal":3,"golesvisitor":1,"round":40,"torneo":"UEFA Champions League"}
