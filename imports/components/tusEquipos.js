@@ -30,15 +30,10 @@ class TusEquipos extends Component {
 
 	cargarMisEquipos()
 	{
-		let nombres = Usuarios.find({"_id":Meteor.userId()}).fetch();
-		let eq = nombres[0];
-		if(nombres.length>0)
+		if(this.props.mUsuario[0].equipos)
 		{
-		if(eq.equipos)
-		{
-			let nom = eq.equipos;
 			let equipo = [];
-			nom.map(name=>{
+			this.props.mUsuario[0].equipos.map(name=>{
 			let nueq = Equipos.find({"Nombre":name}).fetch()[0];
 			if(nueq!== undefined)
 			equipo.push(nueq);
@@ -47,7 +42,6 @@ class TusEquipos extends Component {
 				misEquipos:equipo,
 				tengoEquipos:true,
 			});				
-		}
 		}
 	}
 	cambiarTengoEquipos()
@@ -76,7 +70,6 @@ class TusEquipos extends Component {
 				equipos:nuevEquipos,
 			});
 	}
-
 	includesMis(equipo)
 	{
 		let include = 0;
@@ -108,6 +101,11 @@ class TusEquipos extends Component {
 	componentWillMount()
 	{
 		this.cargarMisEquipos();
+	}
+	componentDidMount()
+	{
+		Meteor.subscribe('usuarios');
+		Meteor.subscribe('equipos');
 	}
 	render() {
 		if(Meteor.userId())
@@ -166,5 +164,6 @@ export default createContainer(()=>{
 	
 	return{
 		mequipos:Equipos.find({}).fetch(),
+		mUsuario:Usuarios.find({"_id":Meteor.userId()}).fetch(),
 	}
 }, TusEquipos);
