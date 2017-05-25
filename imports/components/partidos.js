@@ -55,7 +55,7 @@ class Partidos extends Component{
 		let misParts = [];
 		if(this.props.mUsuario.length>0 )
 		{
-			if(user[0].equipos)
+			if(this.props.mUsuario[0].equipos)
 			{
 				this.props.mUsuario[0].equipos.map(equipo=>{
 					this.props.mPartidos.map(partido=>{
@@ -118,7 +118,7 @@ export default createContainer(()=>{
 	Meteor.subscribe('usuarios');
 	Meteor.subscribe('partidos');
 	return{
-		mUsuario:Usuarios.find({}).fetch(),
+		mUsuario:Usuarios.find({"_id":Meteor.userId()}).fetch(),
 		mPartidos:PartidosM.find({}).fetch(),
 	}
 }, Partidos);
