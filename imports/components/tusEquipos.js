@@ -157,38 +157,3 @@ export default createContainer(()=>{
 		equipos:nuevEquipos,
 	}
 }, TusEquipos);
-
-/*cargarEquipos()
-	{
-		let nuev = !this.state.anadir;
-		this.setState({
-			anadir:nuev,
-		});
-			var nuevEquipos = [];
-			this.props.mequipos.map(equipo=>{
-			if(equipo.url_escudo && !this.includesMis(equipo))
-			{	
-				
-				nuevEquipos.push(equipo);
-			}
-			});	
-			this.setState({
-				equipos:nuevEquipos,
-			});
-	}*/
-	/*cargarMisEquipos()
-	{
-		if(this.props.mUsuario[0].equipos)
-		{
-			let equipo = [];
-			this.props.mUsuario[0].equipos.map(name=>{
-			let nueq = Equipos.find({"Nombre":name}).fetch()[0];
-			if(nueq!== undefined)
-			equipo.push(nueq);
-			});
-			this.setState({
-				misEquipos:equipo,
-				tengoEquipos:true,
-			});				
-		}
-	}*/
