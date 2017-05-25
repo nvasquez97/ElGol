@@ -13,7 +13,7 @@ export default class Videos extends Component{
 		this.state={
 			goles:[],
 			highlights:[],
-			videoId:"NoWqnjmh8KU",
+			videoId:"",
 		}
 		this.changeVideo= this.changeVideo.bind(this);
 	}
@@ -23,6 +23,7 @@ export default class Videos extends Component{
 		{	
 			this.setState({
 				goles:videos,
+				videoId:videos[0].id.videoId,
 			});	
 		});
 		Youtube({key:API_K, term:this.props.partido.local+" " + this.props.partido.goleslocal + " " + this.props.partido.visitor + " " + this.props.partido.golesvisitor}, (videos)=>

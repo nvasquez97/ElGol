@@ -12,7 +12,7 @@ class Partidos extends Component{
 		super(props);
 		this.state={
 			tusequipos:false,
-			partidos:[{_id:1,nombreEquipo1:'Millonarios', nombreEquipo2:'Patriotas', goles1:2, goles2:0}],
+			partidos:[],
 		}
 	}
 
@@ -48,9 +48,8 @@ class Partidos extends Component{
 
 	cargarPartidos()
 	{
-		console.log(this.props.mPartidos);
 		let parts=this.props.mPartidos;
-		let user = Usuarios.find({"_id":Meteor.userId()}).fetch();
+		let user = this.props.mUsuario;
 		let misParts = [];
 		if(user.length>0 )
 		{
@@ -114,7 +113,6 @@ export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
 	Meteor.subscribe('partidos');
-	console.log(PartidosM.find({}).fetch());
 	return{
 		mUsuario:Usuarios.find({}).fetch(),
 		mPartidos:PartidosM.find({}).fetch(),
