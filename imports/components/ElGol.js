@@ -22,7 +22,7 @@ export default class UserForm extends Component{
 			let pass = document.getElementById('passR').value;
 			if(pass ==="" || nombre ==="" || this.state.user ==="")
 			{
-
+                  sAlert.success('Debes completar todos los campos para registrarte', {timeout: 20000, position:'top', effect:'jelly'});
 			}
 			else{
 				Accounts.createUser({
@@ -55,6 +55,7 @@ export default class UserForm extends Component{
 			let pass = document.getElementById('passL').value;
 			if(pass ==="" || this.state.user ==="")
 			{
+                  sAlert.success('Debes completar todos los campos para poder iniciar sesión', {timeout: 20000, position:'top', effect:'jelly'});
 
 			}
 			else
