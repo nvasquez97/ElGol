@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Partido from './partido.js';
 import { Usuarios } from '../api/usuarios.js';
 import { PartidosM } from '../api/partidos.js';
+import '../style.css';
 
 class Partidos extends Component{
 	constructor(props)
@@ -128,7 +129,9 @@ class Partidos extends Component{
 						}
 					</div>
 					<button className="btn btn-primary" onClick={this.equipos.bind(this)}> Ve a Tus Equipos</button>
+					<div className="pull-right botonCerrar">
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
+					</div>
 				</div>);	
 			}
 		}

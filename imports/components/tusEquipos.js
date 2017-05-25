@@ -8,6 +8,7 @@ import Equipo from './equipo.js';
 import { Usuarios } from '../api/usuarios.js';
 import { Equipos } from '../api/equipos.js';
 
+import '../style.css';
 class TusEquipos extends Component {
 
 	constructor(props)
@@ -81,7 +82,7 @@ class TusEquipos extends Component {
 			{
 				return(
 			<div>
-				<div className="selectTeam container col-md-8">
+				<div className="selectTeam container col-md-6">
 					<div className="tusEquipos">
 							<h1 className="tituloTemp">Equipos</h1>
 					</div>
@@ -103,10 +104,13 @@ class TusEquipos extends Component {
 							})
 							: <span></span>
 					}
-					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
+					
 				</div>
-				<div className="col-md-4">
+				<div className="col-md-6">
 					<TusJugadores/>
+				</div>
+				<div className="pull-right botonCerrar">
+				<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
 				</div>
 			</div>
 			);

@@ -113,3 +113,9 @@ span{
 }
 /*.form-horizontal{
 	position:absolute;}*/
+
+.botonCerrar{
+	position:fixed;
+	top:10px;
+	right:20px;
+}
