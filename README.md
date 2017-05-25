@@ -16,12 +16,6 @@ meteor
 * Not yet
 
 ## Pasos que hacen falta
-1. Youtube ... Ya recibe info!
-2. Fill DB ...solo faltan jugadores
-3. Finish Templates
-	1. Mis equipos/jugadores .. ya hay
-	2. Añadir equipos/jugadores .. ya hay
-	3. Videos de mis equipos/jugadores .. ya hay
-4. Tests
-5. Pruebas usabilidad
-6. Video
+1. Jugadores
+2. Pruebas usabilidad
+3. Video

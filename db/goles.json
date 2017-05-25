@@ -16,13 +16,9 @@
 {"jugador": "Cristiano Ronaldo", "gol":"2-0", "vs":"Sevilla FC","orden":1 }
 {"jugador": "Cristiano Ronaldo", "gol":"3-1", "vs": "Sevilla FC","orden":2 }
 {"jugador": "Cristiano Ronaldo", "gol":"1-0", "vs": "Porto FC","orden":31 }
-{"jugador": "Radamel Falcao", "gol":"2-1", "vs": }
-{"jugador": "Radamel Falcao", "gol":"2-1", "vs": }
-{"jugador": "Radamel Falcao", "gol":"2-1", "vs": }
-{"jugador": "Radamel Falcao", "gol":"2-1", "vs": }
-{"jugador": "Radamel Falcao", "gol":"2-1", "vs": }
-{"jugador": "Guillermo Cuadrado", "gol":"2-1", "vs": }
-{"jugador": "Guillermo Cuadrado", "gol":"2-1", "vs": }
-{"jugador": "Guillermo Cuadrado", "gol":"2-1", "vs": }
-{"jugador": "Guillermo Cuadrado", "gol":"2-1", "vs": }
-{"jugador": "Guillermo Cuadrado", "gol":"2-1", "vs": }
+{"jugador": "Radamel Falcao", "gol":"1-0", "vs": "Lille", "orden":4}
+{"jugador": "Radamel Falcao", "gol":"3-0", "vs":  "Lille", "orden":5}
+{"jugador": "Radamel Falcao", "gol":"0-1", "vs": "Lyon", "orden":3}
+{"jugador": "Radamel Falcao", "gol":"2-0", "vs": "Borussia Dortmund", "orden": 2 }
+{"jugador": "Radamel Falcao", "gol":"2-1", "vs": "Dijon", "orden":1 }
+{"jugador": "Radamel Falcao", "gol":"0-1", "vs": "América", "orden":31 }
