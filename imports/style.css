@@ -97,6 +97,9 @@ span{
 	text-align: center;
 	font-size: 20px;
 }
+.tPartido{
+	font-size: 25px;
+}
 .imgEquipo{
 	max-width: 100px;
 	max-height:100px;

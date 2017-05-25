@@ -28,55 +28,15 @@ class TusEquipos extends Component {
 		this.setState({partidos:true});
 	}
 
-	cargarMisEquipos()
-	{
-		let nombres = Usuarios.find({"_id":Meteor.userId()}).fetch();
-		let eq = nombres[0];
-		if(nombres.length>0)
-		{
-		if(eq.equipos)
-		{
-			let nom = eq.equipos;
-			let equipo = [];
-			nom.map(name=>{
-			let nueq = Equipos.find({"Nombre":name}).fetch()[0];
-			if(nueq!== undefined)
-			equipo.push(nueq);
-			});
-			this.setState({
-				misEquipos:equipo,
-				tengoEquipos:true,
-			});				
-		}
-		}
-	}
+	
 	cambiarTengoEquipos()
-	{
-		this.setState({
-			tengoEquipos:false,
-		});
-		this.cargarEquipos();
-	}
-	cargarEquipos()
 	{
 		let nuev = !this.state.anadir;
 		this.setState({
 			anadir:nuev,
 		});
-			var equipos = Equipos.find({}).fetch();
-			var nuevEquipos = [];
-			equipos.map(equipo=>{
-			if(equipo.url_escudo && !this.includesMis(equipo))
-			{	
-				
-				nuevEquipos.push(equipo);
-			}
-			});	
-			this.setState({
-				equipos:nuevEquipos,
-			});
 	}
-
+	
 	includesMis(equipo)
 	{
 		let include = 0;
@@ -105,9 +65,10 @@ class TusEquipos extends Component {
 			});
 	}
 
-	componentWillMount()
+	componentDidMount()
 	{
-		this.cargarMisEquipos();
+		Meteor.subscribe('usuarios');
+		Meteor.subscribe('equipos');
 	}
 	render() {
 		if(Meteor.userId())
@@ -126,18 +87,18 @@ class TusEquipos extends Component {
 					</div>
 					<hr></hr>
 					<div className="row">
-						{this.state.misEquipos.length >1 ? <h5> Mira tus equipos: </h5> : <h5> No tienes equipos, añade tu favorito </h5>}
-						{this.state.misEquipos.map(equipo=>{
+						{this.props.mequipos.length >1 ? <h5> Mira tus equipos: </h5> : <h5> No tienes equipos, añade tu favorito </h5>}
+						{this.props.mequipos.map(equipo=>{
 							return <Equipo key={equipo._id} equipo={equipo} cambiar={this.cambiarTengoEquipos.bind(this)}/>
 							})
 						}
 					</div>					
 					<div className="botones">
-						<button className="btn btn-success" onClick={this.cargarEquipos.bind(this)}> Añadir equipos </button>
+						<button className="btn btn-success" onClick={this.cambiarTengoEquipos.bind(this)}> Añadir equipos </button>
 						<button className="btn btn-primary" onClick={this.irAPartidos.bind(this)}> Ir a mis partidos </button>
 					</div>
 					<hr></hr>
-					{this.state.anadir ? this.state.equipos.map(equipo=>{
+					{this.state.anadir ? this.props.equipos.map(equipo=>{
 							return <Equipo key={equipo._id} equipo={equipo} anadir={true} cambiar={this.cambiarTengoEquipos.bind(this)}/>
 							})
 							: <span></span>
@@ -163,8 +124,71 @@ class TusEquipos extends Component {
 export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
+	//Encontrar misEQuipos
+	let user =Usuarios.find({"_id":Meteor.userId()}).fetch()[0];
+	let misEquipos = [];
+	if(user.equipos)
+		{
+			user.equipos.map(equipo=>{
+		misEquipos=misEquipos.concat(Equipos.find({"Nombre":equipo}).fetch());
+		});
+		}
+
+	//Encontrar los equipos que no son mios
+	var nuevEquipos = [];
+	var equis = Equipos.find({}).fetch();
+	if(equis !== undefined)
+	{
+		equis.map(equipo=>{
+			let verificar =0;
+			misEquipos.map(ver=> {
+				if(ver.Nombre===equipo.Nombre)
+					verificar++;
+			});
+		if(equipo.url_escudo && verificar<1)
+		{	
+			nuevEquipos.push(equipo);
+		}
+	});		
+	}
 	
 	return{
-		mequipos:Equipos.find({}).fetch(),
+		mequipos:misEquipos,
+		equipos:nuevEquipos,
 	}
 }, TusEquipos);
+
+/*cargarEquipos()
+	{
+		let nuev = !this.state.anadir;
+		this.setState({
+			anadir:nuev,
+		});
+			var nuevEquipos = [];
+			this.props.mequipos.map(equipo=>{
+			if(equipo.url_escudo && !this.includesMis(equipo))
+			{	
+				
+				nuevEquipos.push(equipo);
+			}
+			});	
+			this.setState({
+				equipos:nuevEquipos,
+			});
+	}*/
+	/*cargarMisEquipos()
+	{
+		if(this.props.mUsuario[0].equipos)
+		{
+			let equipo = [];
+			this.props.mUsuario[0].equipos.map(name=>{
+			let nueq = Equipos.find({"Nombre":name}).fetch()[0];
+			if(nueq!== undefined)
+			equipo.push(nueq);
+			});
+			this.setState({
+				misEquipos:equipo,
+				tengoEquipos:true,
+			});				
+		}
+	}*/

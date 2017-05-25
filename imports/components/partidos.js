@@ -36,7 +36,7 @@ class Partidos extends Component{
 	}
 	componentWillMount()
 	{
-		this.cargarPartidos();
+		//this.cargarPartidos();
 	}
 
 	componentDidMount()
@@ -44,14 +44,38 @@ class Partidos extends Component{
 		Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
 	Meteor.subscribe('partidos');
+	//this.cargarPartidos();
 	}
 
-	cargarPartidos()
+	/*componentWillUpdate(nextProps)
+	{
+		let misParts = [];
+		if(nextProps.mUsuario.length>0 )
+		{
+			if(nextProps.mUsuario[0].equipos)
+			{
+				nextProps.mUsuario[0].equipos.map(equipo=>{
+					nextProps.mPartidos.map(partido=>{
+						if(partido.local || partido.visitor)
+						{
+							if(equipo === partido.local || equipo === partido.visitor)
+							{
+								misParts.push(partido);
+							}
+						}
+					});
+				});
+			}
+			this.setState({
+				partidos:misParts,
+			});
+		}
+	}*/
+
+	/*cargarPartidos()
 	{
 		let parts=this.props.mPartidos;
 		let user = this.props.mUsuario;
-		console.log(this.props.mPartidos);
-		console.log(this.props.mUsuario);
 		let misParts = [];
 		if(this.props.mUsuario.length>0 )
 		{
@@ -69,13 +93,14 @@ class Partidos extends Component{
 					});
 				});
 			}
-			console.log(misParts);
+			misParts.sort(function(may, men){
+				return men.round - may.round;
+			});
 			this.setState({
 				partidos:misParts,
 			});
-			console.log(this.state.partidos);
 		}
-	}
+	}*/
 
 	render()
 	{
@@ -97,7 +122,7 @@ class Partidos extends Component{
 							:
 							<span> </span>
 						}
-						{this.state.partidos.map(partido=>{
+						{this.props.mPartidos.map(partido=>{
 							return <Partido key={partido._id} partido={partido}/>
 							})
 						}
@@ -117,8 +142,35 @@ export default createContainer(()=>{
 	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
 	Meteor.subscribe('partidos');
+
+		let parts=PartidosM.find({}).fetch();
+		let user = Usuarios.find({"_id":Meteor.userId()}).fetch();
+		let misParts = [];
+		if(parts.length>0 && user.length>0)
+		{
+			console.log('aca');
+			if(user[0].equipos)
+			{
+				user[0].equipos.map(equipo=>{
+					parts.map(partido=>{
+						if(partido.local || partido.visitor)
+						{
+							if(equipo === partido.local || equipo === partido.visitor)
+							{
+								misParts.push(partido);
+							}
+						}
+					});
+				});
+			}
+			misParts.sort(function(may, men){
+				return men.round - may.round;
+			});
+			console.log(misParts);
+		}
+
 	return{
 		mUsuario:Usuarios.find({"_id":Meteor.userId()}).fetch(),
-		mPartidos:PartidosM.find({}).fetch(),
+		mPartidos:misParts,
 	}
 }, Partidos);
