@@ -28,16 +28,14 @@ export default class Gol extends Component{
 		}
 		return(
 			<div>
+
 			{this.props.nombre===this.props.gol.jugador?
-			
 			<div className="row">
-			<div className="col-md-6">
-
-			</div>
-			<div className="col-md-6">
-
-			</div>
-			<h5 className="tEquipo"> Soy un gol </h5>
+			<hr></hr>
+			{this.props.gol.orden===31?<h5 className="tEquipo"><span> Merjor gol:</span> {this.props.gol.gol} vs {this.props.gol.vs} </h5>
+				:<h5 className="tEquipo"> {this.props.gol.gol} vs {this.props.gol.vs} </h5>
+			}
+			<hr></hr>
 			</div>
 			:<span></span>
 			}

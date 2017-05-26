@@ -29,17 +29,29 @@ class Jugador extends Component{
 		this.setState(
 		{
 			verGoles:ver,
+			videoId:'',
 		});
+	}
+
+	getURL(){
+		let url="https://www.youtube.com/embed/"+this.state.videoId+"?autoplay=1";
+		return url;
+	}
+	videoId(id)
+	{
+		this.setState({
+			videoId:id,
+		})
 	}
 	render()
 	{
 		return(
 			<div>
-			<div className="gris jugador row">
-			<div className="jugI col-md-5">
+			<div className="gris jugador row" onClick={this.verGoles.bind(this)}>
+			<div className="jugI col-md-3">
 				<img src={this.props.jugador.url_img} alt={this.props.jugador.nombre} className="img-responsive img-circle imgJug"/>
 			</div>
-			<div className="jugD col-md-5">
+			<div className="jugD col-md-7">
 			 	<h5> {this.props.jugador.nombre}</h5>
 			</div>
 			<div className="col-md-2">
@@ -49,9 +61,11 @@ class Jugador extends Component{
 				}
 			</div>
 			 </div>
-			 {this.state.verGoles ? this.props.goles.map(gol=>{
-			 	return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre}/> 
-			 }): <span></span>}	
+			 {this.state.verGoles ?
+          		this.props.goles.map(gol=>{
+			 		return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre}/> 
+			 	})
+				: <span></span>}	
 			 </div>
 			);
 	}
