@@ -30,9 +30,9 @@ export default class Gol extends Component{
 			<div>
 
 			{this.props.nombre===this.props.gol.jugador?
-			<div className="row">
+			<div className="row gris">
 			<hr></hr>
-			{this.props.gol.orden===31?<h5 className="tEquipo"><span> Merjor gol:</span> {this.props.gol.gol} vs {this.props.gol.vs} </h5>
+			{this.props.gol.orden===31?<h5 className="tEquipo"><span><strong> Merjor gol:</strong></span> {this.props.gol.gol} vs {this.props.gol.vs} </h5>
 				:<h5 className="tEquipo"> {this.props.gol.gol} vs {this.props.gol.vs} </h5>
 			}
 			<hr></hr>
