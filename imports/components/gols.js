@@ -9,25 +9,30 @@ export default class Gol extends Component{
 		super(props);
 		this.state={
 			gols:[],
+			ver:false,
+			videoId:'',
 		}
 	}
 	search()
 	{
-		Youtube({key:API_K, term: "gol "+this.props.gol.jugador+" "+this.props.gol.gol+" vs "+this.props.vs}, (videos)=>
+		Youtube({key:API_K, term: "gol "+this.props.gol.jugador+" "+this.props.gol.gol+" vs "+this.props.vs, channelId:'UCqoAj1bv79eZJc326cemDnw'}, (videos)=>
 		{	
 			this.setState({
 				gols:videos,
+				videoId:videos[0].id.videoId,
 			});	
 		});
 	}
 	verVideo()
-	{
-		console.log(this.state.gols)
-		console.log(this.state.gols[0]);
-		if(this.state.gols[0].id)
-		{
-			this.props.videoId(this.state.gols[0].id.videoId);
-		}
+	{		
+		let verN = !this.state.ver;
+		this.setState({
+			ver:verN,
+		});
+	}
+	getURL(){
+		let url="https://www.youtube.com/embed/"+this.state.videoId+"?autoplay=1";
+		return url;
 	}
 	render()
 	{
@@ -51,6 +56,11 @@ export default class Gol extends Component{
 			</div>
 			:<span></span>
 			}
+			{this.state.ver && this.state.videoId!==''?
+				<div  className="embed-responsive embed-responsive-16by9">
+            		<iframe className="embed-responsive-item" src={this.getURL()} ></iframe>
+          		</div>
+				:<span></span>}
 			
 			</div>);
 	}

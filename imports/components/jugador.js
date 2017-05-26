@@ -12,7 +12,6 @@ class Jugador extends Component{
 		super(props);
 		this.state={
 			verGoles:false,
-			verVideo:false,
 		}
 	}
 	anadirJugador(){
@@ -30,22 +29,9 @@ class Jugador extends Component{
 		this.setState(
 		{
 			verGoles:ver,
-			videoId:'',
-
 		});
 	}
 
-	getURL(){
-		let url="https://www.youtube.com/embed/"+this.state.videoId+"?autoplay=1";
-		return url;
-	}
-	videoId(id)
-	{
-		this.setState({
-			videoId:id,
-			verVideo:true,
-		})
-	}
 	render()
 	{
 		return(
@@ -65,11 +51,7 @@ class Jugador extends Component{
 				<button className="btn btn-default" onClick={this.eliminarJugador.bind(this)}> <i className="fa fa-trash fa-2x"></i></button>
 				}
 			</div>
-			{this.state.verVideo && this.state.videoId!==''?
-				<div  className="embed-responsive embed-responsive-16by9">
-            		<iframe className="embed-responsive-item" src={this.getURL()} ></iframe>
-          		</div>
-				:<span></span>}
+			
 			 </div>
 			 {this.state.verGoles  ?
           		this.props.goles.map(gol=>{
