@@ -8,7 +8,7 @@ export default class Gol extends Component{
 	{
 		super(props);
 		this.state={
-			gols:{},
+			gols:[],
 		}
 	}
 	search()
@@ -16,14 +16,15 @@ export default class Gol extends Component{
 		Youtube({key:API_K, term: "gol "+this.props.gol.jugador+" "+this.props.gol.gol+" vs "+this.props.vs}, (videos)=>
 		{	
 			this.setState({
-				gols:videos[0],
+				gols:videos,
 			});	
 		});
 	}
 	verVideo()
 	{
-		console.log(this.state.gols);
-		if(this.state.gols.id)
+		console.log(this.state.gols)
+		console.log(this.state.gols[0]);
+		if(this.state.gols[0].id)
 		{
 			this.props.videoId(this.state.gols.id.videoId);	
 		}

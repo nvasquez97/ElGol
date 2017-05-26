@@ -18,12 +18,12 @@ export default class Video extends Component{
 			{this.props.goles.map(gol=>{
 					if(gol === this.props.goles[0] || gol === this.props.goles[1])
 					{
-						return (<div className="col-md-3 gris" key={gol.id.videoId}>
+						return (<div className="row gris" key={gol.id.videoId}>
 								<a onClick={() => this.props.changeVideo(gol.id.videoId)}><p> {gol.snippet.title}</p></a>
 							</div>
 							)
 					}
-					return (<div className="col-md-2 gris" key={gol.id.videoId}>
+					return (<div className="row gris" key={gol.id.videoId}>
 								<a onClick={() => this.props.changeVideo(gol.id.videoId)}><p>{gol.snippet.title}</p></a>
 							</div>)
 				})}
@@ -37,12 +37,12 @@ export default class Video extends Component{
 			{this.props.high.map(gol=>{
 					if(gol === this.props.high[0] || gol === this.props.high[1])
 					{
-						return (<div className="col-md-3 gris" key={gol.id.videoId}>
+						return (<div className="row gris" key={gol.id.videoId}>
 								<a onClick={() => this.props.changeVideo(gol.id.videoId)}><p> {gol.snippet.title}</p></a>
 							</div>
 							)
 					}
-					return (<div className="col-md-2 gris" key={gol.id.videoId}>
+					return (<div className="row gris" key={gol.id.videoId}>
 								<a onClick={() => this.props.changeVideo(gol.id.videoId)}><p> {gol.snippet.title}</p></a>
 							</div>)
 				})}

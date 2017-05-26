@@ -38,7 +38,7 @@ class Partidos extends Component{
 
 	componentDidMount()
 	{
-		Meteor.subscribe('equipos');
+	Meteor.subscribe('equipos');
 	Meteor.subscribe('usuarios');
 	Meteor.subscribe('partidos');	
 	}

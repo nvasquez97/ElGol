@@ -95,6 +95,7 @@ span{
 }
 .partidoM{
 	width:30%;
+	float: right;
 }
 .tEquipo{
 	text-align: center;
