@@ -26,7 +26,7 @@ export default class Partido extends Component {
 			<div className="container col-md-6" >
 				<div className="gris" title="¡Haz click!" onClick={this.irAVideo.bind(this)}>
 					<hr></hr>
-					<h5 className="tEquipo"> <span><i className="fa fa-video-camera" aria-hidden="true"></i> <strong>{this.props.partido.torneo}</strong></span> </h5>
+					<h5 className="tPartidoN"> <i className="fa fa-video-camera" aria-hidden="true"></i> <strong>{this.props.partido.torneo}</strong> </h5>
 					<div className="partido">
 						<div className="partidoI">
 							<h5 className="tPartido"> {this.props.partido.local}</h5>
@@ -35,7 +35,7 @@ export default class Partido extends Component {
 							<h5 className="tPartido"> {this.props.partido.visitor}</h5>
 						</div>
 						<div className="partidoM">
-							<h5 className="tPartido"><span>{this.props.partido.goleslocal} - {this.props.partido.golesvisitor}</span> </h5>
+							<h5 className="tPartidoN">{this.props.partido.goleslocal} - {this.props.partido.golesvisitor}</h5>
 						</div>
 						
 					</div>

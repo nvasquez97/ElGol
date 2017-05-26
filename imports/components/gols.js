@@ -26,7 +26,7 @@ export default class Gol extends Component{
 		console.log(this.state.gols[0]);
 		if(this.state.gols[0].id)
 		{
-			this.props.videoId(this.state.gols.id.videoId);	
+			this.props.videoId(this.state.gols[0].id.videoId);
 		}
 	}
 	render()

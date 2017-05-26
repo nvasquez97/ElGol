@@ -65,13 +65,13 @@ class Jugador extends Component{
 				<button className="btn btn-default" onClick={this.eliminarJugador.bind(this)}> <i className="fa fa-trash fa-2x"></i></button>
 				}
 			</div>
-			{this.state.verVideo?
+			{this.state.verVideo && this.state.videoId!==''?
 				<div  className="embed-responsive embed-responsive-16by9">
             		<iframe className="embed-responsive-item" src={this.getURL()} ></iframe>
           		</div>
 				:<span></span>}
 			 </div>
-			 {this.state.verGoles ?
+			 {this.state.verGoles  ?
           		this.props.goles.map(gol=>{
 			 		return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre} videoId={this.videoId.bind(this)}/> 
 			 	})
