@@ -25,10 +25,10 @@ export default class UserForm extends Component{
                   sAlert.success('Debes completar todos los campos para registrarte', {timeout: 20000, position:'top', effect:'jelly'});
 			}
 			else if(pass.length<=8){
-				sAlert.success('Tu contraseña debe tener más de 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+				sAlert.success('Tu CONTRASEÑA debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
 			}
 			else if(this.state.user.length<=8){
-				sAlert.success('Tu usuario debe tener más de 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+				sAlert.success('Tu USUARIO debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
 			}
 			else{
 				Accounts.createUser({
@@ -112,7 +112,7 @@ export default class UserForm extends Component{
 					<div className="form-group">
 						<label className="control-label col-sm-5" htmlFor="userR">Usuario:</label>
 						<div className="col-sm-11">
-							<input className="inputText form-control" id="userR" placeholder="Ingresa nombre de usuario" onChange={event => this.data(event.target.value)}/>
+							<input className="inputText form-control" id="userR" placeholder="Al menos de 8 caracteres" onChange={event => this.data(event.target.value)}/>
 						</div>
 					</div>
 					<div className="form-group">
@@ -124,7 +124,7 @@ export default class UserForm extends Component{
 					<div className="form-group">
 						<label className="control-label col-sm-5" htmlFor="passR">Contraseña:</label>
 						<div className="col-sm-11">
-							<input className="inputText form-control" id="passR" type="password" placeholder="Ingresa tu constraseña"/>
+							<input className="inputText form-control" id="passR" type="password" placeholder="Al menos de 8 caracteres "/>
 						</div>
 					</div>
 					<div className="buttonsL col-sm-11" id="sig">
