@@ -57,6 +57,7 @@ class Partidos extends Component{
 				<div className="container">
 					<h1 className="tituloTemp"> Partidos </h1>
 					<hr></hr>
+					<button className="btn btn-primary" onClick={this.equipos.bind(this)}> Ve a Tus Equipos</button>
 					<div className="row">
 						{this.props.mPartidos.length < 1 ? 
 							<h5> No tienes partidos, ve a agregar tus equipos favoritos </h5>
@@ -68,7 +69,7 @@ class Partidos extends Component{
 							})
 						}
 					</div>
-					<button className="btn btn-primary" onClick={this.equipos.bind(this)}> Ve a Tus Equipos</button>
+					
 					<div className="pull-right botonCerrar">
 					<button className="btn btn-danger" onClick={this.logOut.bind(this)}> Cerrar sesión</button>
 					</div>
