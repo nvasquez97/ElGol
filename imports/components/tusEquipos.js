@@ -88,7 +88,7 @@ class TusEquipos extends Component {
 					</div>
 					<hr></hr>
 					<div className="row">
-						{this.props.mequipos.length >1 ? <h5> Mira tus equipos: </h5> : <h5> No tienes equipos, añade tu favorito </h5>}
+						{this.props.mequipos.length >0 ? <h5> Mira tus equipos: </h5> : <h5> No tienes equipos, añade tu favorito </h5>}
 						{this.props.mequipos.map(equipo=>{
 							return <Equipo key={equipo._id} equipo={equipo} cambiar={this.cambiarTengoEquipos.bind(this)}/>
 							})

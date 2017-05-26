@@ -52,7 +52,9 @@ class Jugador extends Component{
 				<img src={this.props.jugador.url_img} alt={this.props.jugador.nombre} className="img-responsive img-circle imgJug"/>
 			</div>
 			<div className="jugD col-md-7">
-			 	<h5> {this.props.jugador.nombre}</h5>
+			 	<h5 className="hjug"> {this.props.jugador.nombre}
+				<i className="fa fa-sort-down" aria-hidden="true"></i>
+			 	</h5>
 			</div>
 			<div className="col-md-2">
 				{this.props.agregar?

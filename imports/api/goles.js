@@ -6,6 +6,6 @@ export const Goles = new Mongo.Collection('goles');
 if(Meteor.isServer)
 {
 	Meteor.publish('goles', function getGoles(){
-		return Goles.find({});
+		return Goles.find({}, {sort: {orden: -1}});
 	});
 }
