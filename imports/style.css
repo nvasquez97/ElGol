@@ -130,3 +130,11 @@ margin:5px;
 .jugador{
 	text-align: center;
 }
+.equipoEsc{
+	width: 150px;
+	height:200px;
+}
+.like{
+	position:relative;
+	top:70%;
+}
