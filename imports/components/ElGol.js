@@ -22,14 +22,14 @@ export default class UserForm extends Component{
 			let pass = document.getElementById('passR').value;
 			if(pass ==="" || nombre ==="" || this.state.user ==="")
 			{
-                  sAlert.success('Debes completar todos los campos para registrarte', {timeout: 20000, position:'top', effect:'jelly'});
+                  sAlert.success('Debes completar todos los campos para registrarte', {timeout: 5000, position:'top', effect:'jelly'});
 			}
-			else if(pass.length<=8){
-				sAlert.success('Tu contraseña debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+			else if(pass.length<8){
+				sAlert.success('Tu contraseña debe tener al menos 8 caracteres', {timeout: 5000, position:'top', effect:'jelly'});
 				document.getElementById('passR').style.border="2px solid red";
 			}
-			else if(this.state.user.length<=8){
-				sAlert.success('Tu usuario debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+			else if(this.state.user.length<8){
+				sAlert.success('Tu usuario debe tener al menos 8 caracteres', {timeout: 5000, position:'top', effect:'jelly'});
 				document.getElementById('userR').style.border="2px solid red";
 			}
 			else{
@@ -41,17 +41,13 @@ export default class UserForm extends Component{
 				(error)=>{
 					if(error)
 					{
-						sAlert.success(error.reason, {timeout: 20000, position:'top', effect:'jelly'});
-
-						console.log(error.reason);
+						sAlert.success(error.reason, {timeout: 5000, position:'top', effect:'jelly'});
 					}
 					else{
 						Meteor.loginWithPassword(this.state.user, pass, (error)=>{
 							if(error)
 							{
-								sAlert.success(error.reason, {timeout: 20000, position:'top', effect:'jelly'});
-
-								console.log(error);
+								sAlert.success(error.reason, {timeout: 5000, position:'top', effect:'jelly'});
 							}
 							else{
 								this.props.nombre(nombre);
@@ -68,7 +64,7 @@ export default class UserForm extends Component{
 			let pass = document.getElementById('passL').value;
 			if(pass ==="" || this.state.user ==="")
 			{
-                  sAlert.success('Debes completar todos los campos para poder iniciar sesión', {timeout: 20000, position:'top', effect:'jelly'});
+                  sAlert.success('Debes completar todos los campos para poder iniciar sesión', {timeout: 5000, position:'top', effect:'jelly'});
 
 			}
 			else
@@ -76,9 +72,16 @@ export default class UserForm extends Component{
 				Meteor.loginWithPassword(this.state.user, pass, (error)=>{
 					if(error)
 					{
-						sAlert.success(error.reason, {timeout: 20000, position:'top', effect:'jelly'});
+						sAlert.success(error.reason, {timeout: 5000, position:'top', effect:'jelly'});
+						if(error.reason === 'User not found')
+						{
+							document.getElementById('userL').style.border="2px solid red";
+						}
+						else if(error.reason === 'Incorrect password')
+						{
+							document.getElementById('passL').style.border="2px solid red";	
+						}
 
-						console.log(error);
 
 					}
 					else
@@ -94,6 +97,27 @@ export default class UserForm extends Component{
 		this.setState({
 			user: usuario,
 		});
+		if(this.props.estado==="Registrarse")
+		{
+			document.getElementById('userR').style.border="none";
+		}
+		else
+		{
+			document.getElementById('userL').style.border="none";
+		}
+	}
+
+	correccion()
+	{
+		if(this.props.estado==="Registrarse")
+		{
+			document.getElementById('passR').style.border="none";
+		}
+		else
+		{
+			document.getElementById('passL').style.border="none";	
+		}
+		
 	}
 
 	render()
@@ -114,7 +138,7 @@ export default class UserForm extends Component{
 					<div className="form-group">
 						<label className="control-label col-sm-5" htmlFor="userR">Usuario:</label>
 						<div className="col-sm-11">
-							<input className="inputText form-control" id="userR" placeholder="Al menos de 8 caracteres" onChange={event => this.data(event.target.value)}/>
+							<input className="inputText form-control" id="userR" placeholder="Al menos 8 caracteres" onChange={event => this.data(event.target.value)}/>
 						</div>
 					</div>
 					<div className="form-group">
@@ -126,7 +150,7 @@ export default class UserForm extends Component{
 					<div className="form-group">
 						<label className="control-label col-sm-5" htmlFor="passR">Contraseña:</label>
 						<div className="col-sm-11">
-							<input className="inputText form-control" id="passR" type="password" placeholder="Al menos de 8 caracteres "/>
+							<input className="inputText form-control" id="passR" type="password" placeholder="Al menos 8 caracteres" onChange={this.correccion.bind(this)}/>
 						</div>
 					</div>
 					<div className="buttonsL col-sm-11" id="sig">
@@ -158,7 +182,7 @@ export default class UserForm extends Component{
 					<div className="form-group">
 						<label className="control-label col-sm-2" htmlFor="passL">Contraseña:</label>
 						<div className="col-sm-11">
-							<input className="inputText form-control" id="passL" type="password" placeholder="Ingresa tu constraseña"/>
+							<input className="inputText form-control" id="passL" type="password" placeholder="Ingresa tu constraseña" onChange={this.correccion.bind(this)}/>
 						</div>
 					</div>
 					<div className="buttonsL col-sm-11" >

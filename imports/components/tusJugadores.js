@@ -85,8 +85,6 @@ class TusJugadores extends Component {
 				jugadores = players;
 			}
 		}
-		console.log(jugadores);
-		console.log(misJugadores);
 	return{
 		mJugadores:misJugadores,
 		jugadores:jugadores,

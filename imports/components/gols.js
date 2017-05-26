@@ -15,12 +15,13 @@ export default class Gol extends Component{
 	}
 	search()
 	{
-		Youtube({key:API_K, term: "gol "+this.props.gol.jugador+" "+this.props.gol.gol+" vs "+this.props.vs, channelId:'UCqoAj1bv79eZJc326cemDnw'}, (videos)=>
+		Youtube({key:API_K, term: "gol "+this.props.gol.jugador+" "+this.props.gol.gol+" vs "+this.props.gol.vs, channelId:'UCqoAj1bv79eZJc326cemDnw'}, (videos)=>
 		{	
 			this.setState({
 				gols:videos,
 				videoId:videos[0].id.videoId,
 			});	
+
 		});
 	}
 	verVideo()
