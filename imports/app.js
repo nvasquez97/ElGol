@@ -52,10 +52,15 @@ export default class App extends Component {
 				<div className="col-md-7">
 					<div className="container elG">
 					<h1 className="elGolT">El GOL</h1>
-					<h4>Con <span> El GOL</span> encontrarás tus equipos favoritos, podrás ver sus resultados y podrás encontrar 
+					<h4>Con <span> El GOL</span> encontrarás tus equipos y jugadores favoritos, podrás ver sus resultados y podrás encontrar 
 					vídeos de los eventos importantes de cada partido y de todos sus goles. 
 					<br></br>
-					Crea una cuenta, añade tus equipos y descubre.
+					<br></br>
+					<span>
+						<strong>
+							Crea una cuenta, añade tus equipos y descubre.
+						</strong>
+					</span>
 					</h4>
 					<div className="buttonsL">
 						<button className="btn btn-primary" onClick={()=> this.registrarse()}> Registrarse </button>

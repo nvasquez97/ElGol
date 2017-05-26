@@ -20,12 +20,13 @@ export default class Videos extends Component{
 	searchVideos()
 	{
 		let channel = 'UCZjpA3YBPXvJv3pg4SPEjfw';
+		let buscar = this.props.partido.local+" " + this.props.partido.goleslocal + " " + this.props.partido.visitor + " " + this.props.partido.golesvisitor;
 		if(this.props.partido.torneo==="La Liga Santander 2016-2017")
 		{
 			channel = 'UCV4jRdheWq2vcIRD2EESxJA';
 		}
 
-		Youtube({key:API_K, term:this.props.partido.local+" " + this.props.partido.goleslocal + " " + this.props.partido.visitor + " " + this.props.partido.golesvisitor , channelId:channel}, (videos)=>
+		Youtube({key:API_K, term:buscar, channelId:channel}, (videos)=>
 		{	
 			console.log(channel);
 			this.setState({
