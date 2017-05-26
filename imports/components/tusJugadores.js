@@ -19,6 +19,11 @@ class TusJugadores extends Component {
 			anadir:nuevAnadir,
 		});
 	}
+	componentDidMount()
+	{
+		Meteor.subscribe('usuarios');
+		Meteor.subscribe('jugadores');
+	}
 	render()
 	{
 		return(
@@ -31,18 +36,14 @@ class TusJugadores extends Component {
 				})}
 				<button className="btn btn-success" onClick={this.anadir.bind(this)}> Añadir Jugador </button>
 				{this.state.anadir? this.props.jugadores.map(jugador=>{
-					return <Jugador key={jugador._id} jugador={jugador} anadir={this.anadir.bind(this)}/>
+					return <Jugador key={jugador._id} jugador={jugador} anadir={this.anadir.bind(this)} agregar={true}/>
 				}):<span></span>
 				}
 			</div>
 			);
 	}
 
-	componentDidMount()
-	{
-		Meteor.subscribe('usuarios');
-		Meteor.subscribe('jugadores');
-	}
+	
 }
 	export default createContainer(()=>{
 		Meteor.subscribe('usuarios');
@@ -55,7 +56,6 @@ class TusJugadores extends Component {
 		let jugadores =[];
 		if(users.length>0 && players.length>0)
 		{
-			console.log('aca');
 			if(users[0].jugadores)
 			{
 				players.map(play=>{
@@ -69,15 +69,20 @@ class TusJugadores extends Component {
 							jugadores.push(play);
 						}
 					});
+
 				});
-				
-				
+				if(misJugadores.length<1)
+				{
+					jugadores=players;
+				}
 			}
 			else
 			{
 				jugadores = players;
 			}
 		}
+		console.log(jugadores);
+		console.log(misJugadores);
 	return{
 		mJugadores:misJugadores,
 		jugadores:jugadores,

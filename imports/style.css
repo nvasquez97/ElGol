@@ -103,7 +103,7 @@ span{
 .imgEquipo{
 	max-width: 100px;
 	max-height:100px;
-	text-align: center
+	text-align: center;
 }
 .centerImg{
 	text-align: center;
@@ -121,4 +121,12 @@ span{
 }
 .btn{
 margin:5px;
+}
+.imgJug{
+	max-width: 100px;
+	max-height:100px;
+	text-align: center;
+}
+.jugador{
+	text-align: center;
 }
