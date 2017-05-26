@@ -30,7 +30,7 @@ class TusJugadores extends Component {
 			<div className="container">
 				<h1 className="titJugadores tituloTemp">Jugadores</h1>
 				<hr></hr>
-				{this.props.mJugadores.length<1? <h5> No tienes jugadores, añade uno </h5> : <span></span>}
+				{this.props.mJugadores.length<1? <h5> No tienes jugadores, añade uno </h5> : <h5>Mira tus jugadores:</h5>}
 				{this.props.mJugadores.map(jugador=>{
 					return <Jugador key={jugador._id} jugador={jugador} anadir={this.anadir.bind(this)}/>
 				})}
