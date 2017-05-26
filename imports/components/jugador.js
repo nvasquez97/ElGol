@@ -12,6 +12,7 @@ class Jugador extends Component{
 		super(props);
 		this.state={
 			verGoles:false,
+			verVideo:false,
 		}
 	}
 	anadirJugador(){
@@ -30,6 +31,7 @@ class Jugador extends Component{
 		{
 			verGoles:ver,
 			videoId:'',
+
 		});
 	}
 
@@ -41,13 +43,14 @@ class Jugador extends Component{
 	{
 		this.setState({
 			videoId:id,
+			verVideo:true,
 		})
 	}
 	render()
 	{
 		return(
 			<div>
-			<div className="gris jugador row" onClick={this.verGoles.bind(this)}>
+			<div className="gris jugador row" onClick={this.verGoles.bind(this)} title="Mira los goles">
 			<div className="jugI col-md-3">
 				<img src={this.props.jugador.url_img} alt={this.props.jugador.nombre} className="img-responsive img-circle imgJug"/>
 			</div>
@@ -62,10 +65,15 @@ class Jugador extends Component{
 				<button className="btn btn-default" onClick={this.eliminarJugador.bind(this)}> <i className="fa fa-trash fa-2x"></i></button>
 				}
 			</div>
+			{this.state.verVideo?
+				<div  className="embed-responsive embed-responsive-16by9">
+            		<iframe className="embed-responsive-item" src={this.getURL()} ></iframe>
+          		</div>
+				:<span></span>}
 			 </div>
 			 {this.state.verGoles ?
           		this.props.goles.map(gol=>{
-			 		return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre}/> 
+			 		return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre} videoId={this.videoId.bind(this)}/> 
 			 	})
 				: <span></span>}	
 			 </div>

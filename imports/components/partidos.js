@@ -58,7 +58,7 @@ class Partidos extends Component{
 					<h1 className="tituloTemp"> Partidos </h1>
 					<hr></hr>
 					<div className="row">
-						{this.state.partidos.length > 1 ? 
+						{this.props.mPartidos.length < 1 ? 
 							<h5> No tienes partidos, ve a agregar tus equipos favoritos </h5>
 							:
 							<span> </span>

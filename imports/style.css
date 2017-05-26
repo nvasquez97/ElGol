@@ -86,12 +86,15 @@ span{
 }
 .partidoI{
 	float:left;
-	width:50%;
+	width:35%;
 	padding-left: 4%;
 }
 .partidoD{
 	float:right;
-	width: 50%;
+	width: 35%;
+}
+.partidoM{
+	width:30%;
 }
 .tEquipo{
 	text-align: center;
@@ -99,6 +102,7 @@ span{
 }
 .tPartido{
 	font-size: 25px;
+	text-align: center;
 }
 .imgEquipo{
 	max-width: 100px;
