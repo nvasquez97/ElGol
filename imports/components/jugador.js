@@ -55,7 +55,7 @@ class Jugador extends Component{
 			 </div>
 			 {this.state.verGoles  ?
           		this.props.goles.map(gol=>{
-			 		return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre} videoId={this.videoId.bind(this)}/> 
+			 		return <Gol key={gol._id} gol={gol} nombre={this.props.jugador.nombre} /> 
 			 	})
 				: <span></span>}	
 			 </div>
