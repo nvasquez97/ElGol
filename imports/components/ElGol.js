@@ -25,10 +25,12 @@ export default class UserForm extends Component{
                   sAlert.success('Debes completar todos los campos para registrarte', {timeout: 20000, position:'top', effect:'jelly'});
 			}
 			else if(pass.length<=8){
-				sAlert.success('Tu CONTRASEÑA debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+				sAlert.success('Tu contraseña debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+				document.getElementById('passR').style.border="2px solid red";
 			}
 			else if(this.state.user.length<=8){
-				sAlert.success('Tu USUARIO debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+				sAlert.success('Tu usuario debe tener al menos 8 caracteres', {timeout: 20000, position:'top', effect:'jelly'});
+				document.getElementById('userR').style.border="2px solid red";
 			}
 			else{
 				Accounts.createUser({
