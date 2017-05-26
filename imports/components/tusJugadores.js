@@ -75,6 +75,10 @@ class TusJugadores extends Component {
 				{
 					jugadores=players;
 				}
+				else if(misJugadores.length === players.length)
+				{
+					jugadores=[];
+				}
 			}
 			else
 			{
