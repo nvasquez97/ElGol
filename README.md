@@ -13,9 +13,7 @@ meteor
 * <https://elgol.herokuapp.com>
 
 ## Mira nuestro video de demostración
-* Not yet
+* <https://www.youtube.com/watch?v=YV199KCynok>
 
-## Pasos que hacen falta
-1. Jugadores
-2. Pruebas usabilidad
-3. Video
+## Pruebas de Usabilidad
+Para conocer la opinión de los usuarios y entender lo que hay que mejorar, se realizó una encuesta sobre la página web El Gol. Los resultados obtenidos se pueden encontrar en el documento PruebasUsabilidad.pdf.
